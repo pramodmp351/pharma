@@ -1,0 +1,1290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Scientific Services | LabExpert</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- GSAP & ScrollTrigger CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="./footer.css" />
+    <link rel="stylesheet" href="./nav.css" />
+    <style>
+      :root {
+        --primary-dark: #0b3c4c;
+        --primary-deep: #0e4a5f;
+        --accent-teal: #0fa3a6;
+        --accent-bright: #1bc5bd;
+        --accent-mint: #2ed1c1;
+        --bg-light: #f5f7f9;
+        --white: #ffffff;
+        --text-muted: #5f7a86;
+        --text-main: #1a2b33;
+        --gradient-primary: linear-gradient(
+          135deg,
+          var(--accent-teal),
+          var(--accent-bright)
+        );
+        --gradient-dark: linear-gradient(180deg, #0b3c4c 0%, #06232d 100%);
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        --shadow-card: 0 10px 40px rgba(11, 60, 76, 0.06);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: var(--white);
+        color: var(--text-main);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* --- Global Components --- */
+      .container {
+        max-width: 1240px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 18px;
+        background: rgba(15, 163, 166, 0.1);
+        color: var(--accent-teal);
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .btn-gradient {
+        height: 54px;
+        padding: 0 8px 0 24px;
+        background: var(--gradient-primary);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .btn-gradient:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(15, 163, 166, 0.35);
+      }
+
+      .arrow-circle {
+        width: 40px;
+        height: 40px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-teal);
+        transition: var(--transition);
+      }
+
+      .btn-gradient:hover .arrow-circle {
+        transform: translateX(4px);
+      }
+
+      /* --- SECTION 0: MINI HERO --- */
+      .mini-hero {
+        height: 240px;
+        background:
+          linear-gradient(rgba(11, 60, 76, 0.8), rgba(11, 60, 76, 0.9)),
+          url("./assets/h4.webp") center/cover;
+        display: flex;
+        align-items: center;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        color: white;
+        position: relative;
+        z-index: 5;
+      }
+
+      .mini-hero h1 {
+        font-size: 44px;
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 8px;
+      }
+
+      .breadcrumb {
+        font-size: 15px;
+        opacity: 0.8;
+        font-weight: 500;
+      }
+
+      /* --- SECTION 1: SERVICES GRID --- */
+      .services-section {
+        padding: 100px 0;
+        background-color: var(--bg-light);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        width: 100%;
+      }
+
+      .service-card {
+        background: var(--white);
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: var(--shadow-card);
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        border: 1px solid rgba(0, 0, 0, 0.02);
+      }
+
+      .service-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 50px rgba(11, 60, 76, 0.12);
+      }
+
+      .card-icon-circle {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          rgba(15, 163, 166, 0.1),
+          rgba(46, 209, 193, 0.1)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+        color: var(--accent-teal);
+        font-size: 28px;
+      }
+
+      .service-card h3 {
+        font-size: 22px;
+        color: var(--primary-dark);
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .service-card p {
+        color: var(--text-muted);
+        font-size: 15px;
+        margin-bottom: 25px;
+        flex-grow: 1;
+      }
+
+      .card-divider {
+        height: 1px;
+        background: #f0f0f0;
+        margin-bottom: 20px;
+      }
+
+      .read-more-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-decoration: none;
+        color: var(--primary-dark);
+        font-weight: 700;
+        font-size: 14px;
+        transition: var(--transition);
+      }
+
+      .read-more-link .small-arrow-circle {
+        width: 32px;
+        height: 32px;
+        background: #e6f7f7;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent-teal);
+        font-size: 12px;
+        transition: var(--transition);
+      }
+
+      .service-card:hover .small-arrow-circle {
+        background: var(--accent-teal);
+        color: white;
+        transform: rotate(-45deg);
+      }
+
+      /* --- SECTION 2: FEATURES STRIP (DARK) --- */
+      .features-strip {
+        padding: 100px 0;
+        background: var(--gradient-dark);
+        color: white;
+        text-align: center;
+        position: relative;
+      }
+
+      .features-strip::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./assets/b2.webp");
+        opacity: 0.15;
+        pointer-events: none;
+      }
+
+      .features-strip h2 {
+        font-size: 36px;
+        max-width: 600px;
+        margin: 0 auto 60px;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .features-columns {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .feature-item {
+        padding: 0 30px;
+        position: relative;
+      }
+
+      .feature-item:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .feat-icon-box {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        color: var(--accent-mint);
+      }
+
+      /* --- SECTION 3: CONTACT CTA CARD --- */
+      .cta-section {
+        padding: 0;
+        margin-top: -60px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .cta-card {
+        background: white;
+        border-radius: 24px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+        display: grid;
+        grid-template-columns: 480px 1fr;
+        overflow: hidden;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .cta-img {
+        background: url("./assets/cta.webp") center/cover;
+      }
+
+      .cta-body {
+        padding: 60px;
+      }
+
+      .cta-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 40px;
+        border-top: 1px solid #eee;
+        padding-top: 30px;
+      }
+
+      /* --- SECTION 4: PRICING --- */
+      .pricing-section {
+        padding: 120px 0;
+        background: var(--bg-light);
+        text-align: center;
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .price-card {
+        background: white;
+        padding: 45px 35px;
+        border-radius: 24px;
+        text-align: left;
+        box-shadow: var(--shadow-card);
+        position: relative;
+        transition: var(--transition);
+      }
+
+      .price-card.popular {
+        border: 2px solid var(--accent-teal);
+        transform: scale(1.03);
+        z-index: 2;
+      }
+
+      .ribbon {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--accent-teal);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-size: 11px;
+        font-weight: 800;
+      }
+
+      .price-tag {
+        font-size: 44px;
+        font-weight: 800;
+        color: var(--primary-dark);
+        margin: 20px 0;
+      }
+
+      .price-tag span {
+        font-size: 16px;
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+
+      /* --- SECTION 5: WHY CHOOSE US (LAST) --- */
+      .why-us-section {
+        padding: 100px 0;
+        background: var(--gradient-dark);
+        color: white;
+      }
+
+      .exp-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr 1fr;
+        grid-template-rows: 240px 180px;
+        gap: 20px;
+        margin-top: 50px;
+      }
+
+      .exp-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 30px;
+      }
+
+      .exp-card.img-card {
+        padding: 0;
+      }
+
+      .exp-card.img-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .stat-number {
+        font-size: 52px;
+        font-weight: 800;
+        color: var(--accent-mint);
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .progress-container {
+        margin-top: 20px;
+      }
+
+      .prog-track {
+        height: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 10px;
+      }
+
+      .prog-fill {
+        height: 100%;
+        background: var(--gradient-primary);
+        width: 0%;
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 1100px) {
+        .services-grid,
+        .pricing-grid,
+        .features-columns {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .cta-card {
+          grid-template-columns: 1fr;
+        }
+        .cta-img {
+          height: 300px;
+        }
+        .exp-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .services-grid,
+        .pricing-grid,
+        .features-columns,
+        .exp-grid {
+          grid-template-columns: 1fr;
+        }
+        .feature-item::after {
+          display: none;
+        }
+        .cta-body {
+          padding: 40px 24px;
+        }
+        .cta-footer {
+          flex-direction: column;
+          gap: 25px;
+          align-items: flex-start;
+        }
+        .btn-gradient {
+          width: 100%;
+          justify-content: space-between;
+        }
+        .mini-hero h1 {
+          font-size: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="topbar-container">
+        <div class="topbar-left">
+          <svg class="top-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v4l3 3"></path>
+          </svg>
+          Welcome to Stackly – Next Gen Medicines
+        </div>
+        <div class="topbar-right">
+          <a href="./404.html" class="topbar-item">
+            <svg class="top-icon" viewBox="0 0 24 24">
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>hello@stackly.med</span>
+          </a>
+          <div class="topbar-item">
+            <svg class="top-icon" viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.28-2.28a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            <span>+1 (555) 000-1234</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header id="mainHeader">
+      <div class="nav-wrapper">
+        <nav class="navbar-shape">
+          <a href="./index.html" class="logo">
+            <div class="logo-placeholder">STACK<span>LY</span></div>
+          </a>
+
+          <ul class="nav-menu">
+            <li>
+              <a href="./index.html" class="nav-link active">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                HOME
+              </a>
+            </li>
+            <li>
+              <a href="./service.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  ></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                SERVICES
+              </a>
+            </li>
+            <li>
+              <a href="./about.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                ABOUT
+              </a>
+            </li>
+            <li>
+              <a href="./blog.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path
+                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                  ></path>
+                </svg>
+                BLOG
+              </a>
+            </li>
+            <li>
+              <a href="./contact.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  ></path>
+                </svg>
+                CONTACT
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-btns">
+            <a href="./login.html" class="btn btn-outline">LOGIN</a>
+            <a href="./signup.html" class="btn btn-gradient">
+              GET STARTED
+              <div class="btn-icon-circle">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-container">
+          <a href="./index.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            HOME <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./service.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+              ></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            SERVICES <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./about.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            ABOUT <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./blog.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+              ></path>
+            </svg>
+            BLOG <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./contact.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              ></path>
+            </svg>
+            CONTACT <span class="arrow-suffix">→</span>
+          </a>
+        </div>
+
+        <div class="mobile-footer">
+          <a href="./login.html" class="btn btn-outline">LOGIN</a>
+          <a href="./signup.html" class="btn btn-gradient">
+            GET STARTED
+            <div class="btn-icon-circle">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- Section 0: Mini Hero -->
+    <section class="mini-hero">
+      <div class="container">
+        <div
+          class="badge"
+          style="color: white; background: rgba(255, 255, 255, 0.15)"
+        >
+          Services
+        </div>
+        <h1>Our scientific services</h1>
+        <div class="breadcrumb">Home / Services</div>
+      </div>
+    </section>
+
+    <!-- Section 1: Services Grid -->
+    <section class="services-section">
+      <div class="container">
+        <div class="services-grid" id="main-services">
+          <!-- Card 1 -->
+          <div class="service-card">
+            <div class="card-icon-circle">🔬</div>
+            <h3>Diagnostic Testing</h3>
+            <p>
+              Accurate clinical diagnostic testing services with rapid
+              turnaround times for critical medical insights.
+            </p>
+            <div class="card-divider"></div>
+            <a href="./404.html" class="read-more-link">
+              Read More <span class="small-arrow-circle">→</span>
+            </a>
+          </div>
+          <!-- Card 2 -->
+          <div class="service-card">
+            <div class="card-icon-circle">🧪</div>
+            <h3>Laboratory Analysis</h3>
+            <p>
+              Sophisticated analysis of chemical and biological samples using
+              the latest laboratory technology.
+            </p>
+            <div class="card-divider"></div>
+            <a href="./404.html" class="read-more-link">
+              Read More <span class="small-arrow-circle">→</span>
+            </a>
+          </div>
+          <!-- Card 3 -->
+          <div class="service-card">
+            <div class="card-icon-circle">🧬</div>
+            <h3>Industrial Testing</h3>
+            <p>
+              Materials testing and environmental compliance monitoring for safe
+              and efficient industrial operations.
+            </p>
+            <div class="card-divider"></div>
+            <a href="./404.html" class="read-more-link">
+              Read More <span class="small-arrow-circle">→</span>
+            </a>
+          </div>
+          <!-- Card 4 -->
+          <div class="service-card">
+            <div class="card-icon-circle">🧫</div>
+            <h3>Clinical Lab Testing</h3>
+            <p>
+              Comprehensive pathology and clinical testing services tailored for
+              healthcare providers and clinics.
+            </p>
+            <div class="card-divider"></div>
+            <a href="./404.html" class="read-more-link">
+              Read More <span class="small-arrow-circle">→</span>
+            </a>
+          </div>
+          <!-- Card 5 -->
+          <div class="service-card">
+            <div class="card-icon-circle">⚗️</div>
+            <h3>Chemical & Analytical</h3>
+            <p>
+              Specialized analytical chemistry services for pharmaceutical,
+              agriculture, and manufacturing sectors.
+            </p>
+            <div class="card-divider"></div>
+            <a href="./404.html" class="read-more-link">
+              Read More <span class="small-arrow-circle">→</span>
+            </a>
+          </div>
+          <!-- Card 6 -->
+          <div class="service-card">
+            <div class="card-icon-circle">🌡️</div>
+            <h3>Molecular Genetics</h3>
+            <p>
+              Cutting-edge genetic sequencing and molecular diagnostics for
+              precision medicine and research.
+            </p>
+            <div class="card-divider"></div>
+            <a href="./404.html" class="read-more-link">
+              Read More <span class="small-arrow-circle">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Features Strip -->
+    <section class="features-strip">
+      <div class="container">
+        <h2>Discover key features driving scientific innovation</h2>
+        <div class="features-columns">
+          <div class="feature-item">
+            <div class="feat-icon-box">📊</div>
+            <h4>High-Precision Testing</h4>
+            <p>
+              Ensuring 100% accuracy in every sample processed within our
+              facility.
+            </p>
+          </div>
+          <div class="feature-item">
+            <div class="feat-icon-box">🔍</div>
+            <h4>Evidence-Based Research</h4>
+            <p>
+              All methodologies are peer-reviewed and clinically validated for
+              results.
+            </p>
+          </div>
+          <div class="feature-item">
+            <div class="feat-icon-box">🔒</div>
+            <h4>Trusted Data Analysis</h4>
+            <p>
+              Secure data management protocols keeping your research
+              proprietary.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Contact CTA Card -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-img"></div>
+          <div class="cta-body">
+            <div class="badge">Contact Us</div>
+            <h2
+              style="
+                font-size: 38px;
+                color: var(--primary-dark);
+                margin-bottom: 20px;
+              "
+            >
+              Get in touch
+              <span style="color: var(--accent-teal); font-weight: 400"
+                >with expert</span
+              >
+            </h2>
+            <p style="color: var(--text-muted); margin-bottom: 30px">
+              Speak with our senior scientists today to discuss your project
+              requirements or request a custom quotation for specialized lab
+              services.
+            </p>
+            <div class="cta-footer">
+              <a href="./404.html" class="btn-gradient">
+                Book Appointment <span class="arrow-circle">↗</span>
+              </a>
+              <div style="display: flex; align-items: center; gap: 15px">
+                <div
+                  class="feat-icon-box"
+                  style="
+                    margin: 0;
+                    background: #f0fdfc;
+                    color: var(--accent-teal);
+                  "
+                >
+                  📞
+                </div>
+                <div>
+                  <div style="font-size: 12px; color: var(--text-muted)">
+                    Call Us!
+                  </div>
+                  <div style="font-weight: 800; color: var(--primary-dark)">
+                    +91 98765 43210
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Pricing -->
+    <section class="pricing-section">
+      <div class="container">
+        <div class="badge">Flexible Pricing</div>
+        <h2 style="font-size: 38px; color: var(--primary-dark)">
+          Pricing options tailored
+          <span style="color: var(--accent-teal); font-weight: 400"
+            >to your needs</span
+          >
+        </h2>
+
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>Starter Plan</h3>
+            <div class="price-tag">₹ 599 <span>/Month</span></div>
+            <ul
+              style="list-style: none; margin: 30px 0; color: var(--text-muted)"
+            >
+              <li style="margin-bottom: 12px">✅ Basic Diagnostic Tests</li>
+              <li style="margin-bottom: 12px">✅ Digital Lab Reports</li>
+              <li style="margin-bottom: 12px">❌ Priority Processing</li>
+            </ul>
+            <a
+              href="./404.html"
+              class="btn-gradient"
+              style="width: 100%; justify-content: space-between"
+              >Choose Plan <span class="arrow-circle">↗</span></a
+            >
+          </div>
+          <div class="price-card popular">
+            <div class="ribbon">POPULAR</div>
+            <h3>Professional</h3>
+            <div class="price-tag">₹ 899 <span>/Month</span></div>
+            <ul
+              style="list-style: none; margin: 30px 0; color: var(--text-muted)"
+            >
+              <li style="margin-bottom: 12px">✅ All Starter Features</li>
+              <li style="margin-bottom: 12px">✅ Industrial Analysis</li>
+              <li style="margin-bottom: 12px">✅ Priority Support</li>
+            </ul>
+            <a
+              href="./404.html"
+              class="btn-gradient"
+              style="width: 100%; justify-content: space-between"
+              >Choose Plan <span class="arrow-circle">↗</span></a
+            >
+          </div>
+          <div class="price-card">
+            <h3>Enterprise</h3>
+            <div class="price-tag">₹ 999 <span>/Month</span></div>
+            <ul
+              style="list-style: none; margin: 30px 0; color: var(--text-muted)"
+            >
+              <li style="margin-bottom: 12px">✅ Unlimited Testing</li>
+              <li style="margin-bottom: 12px">✅ Dedicated Scientist</li>
+              <li style="margin-bottom: 12px">✅ Custom API Access</li>
+            </ul>
+            <a
+              href="./404.html"
+              class="btn-gradient"
+              style="width: 100%; justify-content: space-between"
+              >Choose Plan <span class="arrow-circle">↗</span></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Why Choose Us -->
+    <section class="why-us-section">
+      <div class="container">
+        <div style="text-align: center">
+          <div
+            class="badge"
+            style="color: white; border: 1px solid rgba(255, 255, 255, 0.2)"
+          >
+            Why Choose Us
+          </div>
+          <h2 style="font-size: 38px; margin-bottom: 40px">
+            Why our scientific
+            <span style="color: var(--accent-mint)">expertise</span>
+          </h2>
+        </div>
+
+        <div class="exp-grid">
+          <div class="exp-card img-card">
+            <img src="./assets/gen1.webp" alt="Lab" />
+          </div>
+          <div class="exp-card img-card">
+            <img src="./assets/ph1.webp" alt="Research" />
+          </div>
+          <div class="exp-card">
+            <div class="stat-number">99.9%</div>
+            <p>Accuracy rate across all standardized clinical trials.</p>
+          </div>
+          <div
+            class="exp-card"
+            style="
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 20px;
+            "
+          >
+            <div
+              style="
+                font-size: 32px;
+                font-weight: 800;
+                color: var(--accent-teal);
+              "
+            >
+              75%
+            </div>
+            <div style="font-size: 14px">
+              Faster turnaround than traditional lab methods.
+            </div>
+          </div>
+          <div class="exp-card">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                font-size: 14px;
+              "
+            >
+              <span>Success Rate</span>
+              <span>90%</span>
+            </div>
+            <div class="prog-track">
+              <div class="prog-fill" data-width="90%"></div>
+            </div>
+          </div>
+          <div class="exp-card img-card">
+            <img src="./assets/gen2.webp" alt="Science" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="container">
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+          <div class="newsletter-content">
+            <h2>Stay updated with the latest research insights</h2>
+          </div>
+          <form class="newsletter-form" id="newsletterForm" action="./404.html">
+            <input type="email" placeholder="Enter Email Address*" required />
+            <button type="submit" class="subscribe-btn">
+              Subscribe
+              <div class="icon-circle">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </button>
+          </form>
+        </section>
+
+        <!-- Main Footer Grid -->
+        <div class="footer-grid">
+          <!-- Column 1: Info & Hours -->
+          <div class="footer-col-info">
+            <div
+              class="footer-logo-wrapper"
+              onclick="window.location.href = './index.html'"
+            >
+              <img
+                src="./assets/logo.webp"
+                alt="Genlab Logo"
+                class="footer-logo"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'block';
+                "
+              />
+              <span class="logo-text" style="display: none"
+                >Genlab<span class="logo-dot">.</span></span
+              >
+            </div>
+            <p class="footer-description">
+              We support discovery across healthcare, biotechnology, & sciences.
+            </p>
+
+            <div class="working-hours">
+              <h4>Working Hours:</h4>
+              <div class="hours-row">
+                <span class="hours-label">Monday - Friday:-</span>
+                <span>10:00 - 05:00</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-label">Saturday:-</span>
+                <span>10:00 - 04:00</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-label">Sunday:-</span>
+                <span>Closed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./service.html">Our Services</a></li>
+              <li><a href="./blog.html">Our Blogs</a></li>
+              <li><a href="./contact.html">Contact US</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Services -->
+          <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul class="footer-links">
+              <li><a href="./404.html">Diagnostic Testing</a></li>
+              <li><a href="./404.html">Laboratory Analysis</a></li>
+              <li><a href="./404.html">Industrial Testing</a></li>
+              <li><a href="./404.html">Clinical</a></li>
+              <li><a href="./404.html">Chemical</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Social -->
+          <div class="footer-col">
+            <h4>Follow Us On Social</h4>
+            <p class="social-desc">
+              Connect with us online for updates, breakthroughs, & lab
+              highlights.
+            </p>
+            <div class="social-icons">
+              <a href="./404.html" class="social-icon" aria-label="Pinterest">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.966 1.406-5.966s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.261 7.929-7.261 4.162 0 7.397 2.966 7.397 6.93 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="X">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="Facebook">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="Instagram">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.584-.071 4.85c-.055 1.171-.248 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.056.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.015-4.85-.071c-1.171-.055-1.805-.248-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.584.071-4.85c.055-1.171.248-1.805.413-2.227.217-.562.477-.96.896-1.382.42-.419.819-.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+          <div class="copyright">Copyright © 2026 All Rights Reserved.</div>
+          <div class="bottom-links">
+            <a href="./404.html">Privacy Policy</a>
+            <a href="./404.html">Legal Documents</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./nav.js"></script>
+    <script src="./footer.js"></script>
+    <script>
+      // Ensure scripts wait for DOM and GSAP libraries
+      window.addEventListener("load", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Initial State Check (Ensure visible)
+        gsap.set(".service-card, .feature-item, .price-card, .exp-card", {
+          opacity: 1,
+          visibility: "visible",
+        });
+
+        // Hero Fade Up
+        gsap.from(".mini-hero h1, .mini-hero .breadcrumb, .mini-hero .badge", {
+          y: 30,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: "power3.out",
+        });
+
+        // Services Grid Stagger
+        gsap.from(".service-card", {
+          scrollTrigger: {
+            trigger: ".services-section",
+            start: "top 85%",
+            once: true,
+          },
+          y: 60,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power2.out",
+        });
+
+        // Features Strip
+        gsap.from(".feature-item", {
+          scrollTrigger: {
+            trigger: ".features-strip",
+            start: "top 85%",
+            once: true,
+          },
+          y: 40,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.2,
+        });
+
+        // CTA Card Animation
+        gsap.from(".cta-card", {
+          scrollTrigger: {
+            trigger: ".cta-section",
+            start: "top 90%",
+            once: true,
+          },
+          scale: 0.9,
+          opacity: 0,
+          duration: 1.2,
+          ease: "expo.out",
+        });
+
+        // Pricing Stagger
+        gsap.from(".price-card", {
+          scrollTrigger: {
+            trigger: ".pricing-grid",
+            start: "top 85%",
+            once: true,
+          },
+          y: 50,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.1,
+        });
+
+        // Why Us Grid
+        gsap.from(".exp-card", {
+          scrollTrigger: {
+            trigger: ".why-us-section",
+            start: "top 85%",
+            once: true,
+          },
+          y: 30,
+          opacity: 0,
+          duration: 0.7,
+          stagger: 0.1,
+        });
+
+        // Progress Bar Animation
+        gsap.to(".prog-fill", {
+          scrollTrigger: {
+            trigger: ".why-us-section",
+            start: "top 80%",
+            once: true,
+          },
+          width: function (i, target) {
+            return target.getAttribute("data-width");
+          },
+          duration: 2,
+          ease: "power4.out",
+        });
+      });
+    </script>
+  </body>
+</html>

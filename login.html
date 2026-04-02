@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>STACKLY | Secure Platform Access</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+      :root {
+        --primary-dark: #0b3c4c;
+        --secondary-dark: #0e4a5f;
+        --teal-mid: #0fa3a6;
+        --teal-bright: #1bc5bd;
+        --teal-accent: #2ed1c1;
+        --bg-light: #f5f7f9;
+        --white: #ffffff;
+        --text-muted: #5f7a86;
+        --border-light: #e5e9eb;
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+        --gradient-primary: linear-gradient(90deg, #0e7ea3, #1bc5bd);
+        --gradient-sidebar: linear-gradient(
+          160deg,
+          var(--primary-dark),
+          var(--secondary-dark)
+        );
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-light);
+        color: var(--primary-dark);
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .main-wrapper {
+        width: 100%;
+        max-width: 1100px;
+        height: 650px;
+        display: flex;
+        background: var(--white);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        margin: 20px;
+      }
+
+      .panel {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .left-panel {
+        background: var(--gradient-sidebar);
+        padding: 60px;
+        position: relative;
+        overflow: hidden;
+        color: var(--white);
+      }
+
+      .abstract-shape {
+        position: absolute;
+        background: rgba(27, 197, 189, 0.15);
+        border-radius: 50%;
+        filter: blur(60px);
+        z-index: 1;
+      }
+
+      .shape-1 {
+        width: 250px;
+        height: 250px;
+        top: -30px;
+        left: -30px;
+      }
+      .shape-2 {
+        width: 350px;
+        height: 350px;
+        bottom: -80px;
+        right: -40px;
+      }
+
+      .brand-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-box {
+        width: 42px;
+        height: 42px;
+        background: var(--gradient-primary);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .divider {
+        width: 50px;
+        height: 4px;
+        background: var(--teal-accent);
+        margin-bottom: 24px;
+        border-radius: 2px;
+      }
+
+      .left-panel h1 {
+        font-size: 2.8rem;
+        line-height: 1.1;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .left-panel p {
+        font-size: 1rem;
+        opacity: 0.85;
+        line-height: 1.6;
+        max-width: 400px;
+      }
+
+      .right-panel {
+        padding: 60px;
+        background: var(--white);
+        position: relative;
+      }
+
+      .form-container {
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
+      }
+
+      .card-header {
+        margin-bottom: 35px;
+      }
+
+      .card-header h2 {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+        color: var(--primary-dark);
+      }
+
+      .card-header p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .input-wrapper {
+        position: relative;
+      }
+
+      .input-wrapper i {
+        position: absolute;
+        left: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-muted);
+        width: 18px;
+        pointer-events: none;
+      }
+
+      .form-control {
+        width: 100%;
+        height: 52px;
+        padding: 0 15px 0 48px;
+        border: 1px solid var(--border-light);
+        border-radius: 12px;
+        font-size: 1rem;
+        transition: var(--transition);
+        outline: none;
+        background: #fcfdfe;
+        color: var(--primary-dark);
+      }
+
+      .form-control:focus {
+        border-color: var(--teal-mid);
+        background: var(--white);
+        box-shadow: 0 0 0 4px rgba(27, 197, 189, 0.1);
+      }
+
+      select.form-control {
+        cursor: pointer;
+        appearance: none;
+      }
+
+      .form-options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+        font-size: 0.85rem;
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text-muted);
+        cursor: pointer;
+      }
+
+      .forgot-link {
+        color: var(--teal-mid);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      /* NEW BUTTON DESIGN (PILL STYLE) */
+      .btn-login {
+        width: 100%;
+        height: 58px;
+        background: var(--gradient-primary);
+        color: #ffffff !important;
+        border: none;
+        border-radius: 50px; /* Pill Shape */
+        font-size: 1.1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: 0 6px 20px rgba(14, 126, 163, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Space for arrow icon */
+        padding: 0 6px 0 30px; /* Padding for text and circle */
+        margin-top: 10px;
+        position: relative;
+        z-index: 5;
+      }
+
+      .btn-login .btn-icon {
+        width: 46px;
+        height: 46px;
+        background: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-dark);
+        transition: var(--transition);
+      }
+
+      .btn-login:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(14, 126, 163, 0.35);
+      }
+
+      .btn-login:hover .btn-icon {
+        transform: rotate(-45deg);
+        color: var(--teal-mid);
+      }
+
+      /* SIGNUP LINK POSITIONED UPWARDS */
+      .signup-prompt {
+        text-align: center;
+        margin-top: 20px; /* Reduced from 30px */
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      .signup-link {
+        color: var(--teal-mid);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 900px) {
+        body {
+          overflow: auto;
+          height: auto;
+          padding: 20px 0;
+        }
+        .main-wrapper {
+          flex-direction: column;
+          height: auto;
+          max-width: 500px;
+          margin: 0 auto;
+        }
+        .left-panel {
+          padding: 50px 40px;
+          text-align: center;
+        }
+        .logo {
+          justify-content: center;
+        }
+        .divider {
+          margin: 0 auto 24px auto;
+        }
+        .left-panel h1 {
+          font-size: 2.2rem;
+        }
+        .right-panel {
+          padding: 40px 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .left-panel h1 {
+          font-size: 1.8rem;
+        }
+        .btn-login {
+          font-size: 1rem;
+          padding-left: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <!-- Decoration Panel -->
+      <div class="panel left-panel">
+        <div class="abstract-shape shape-1"></div>
+        <div class="abstract-shape shape-2"></div>
+
+        <div class="brand-content">
+          <div class="logo">
+            <div class="logo-box">
+              <i data-lucide="layers" style="color: white; width: 24px"></i>
+            </div>
+            STACKLY
+          </div>
+          <div class="divider"></div>
+          <h1>Secure Platform Access</h1>
+          <p>
+            Advanced data management for modern healthcare and legal
+            researchers. Seamless, encrypted, and reliable.
+          </p>
+        </div>
+      </div>
+
+      <!-- Form Panel -->
+      <div class="panel right-panel">
+        <div class="form-container">
+          <div class="card-header">
+            <h2>Welcome Back</h2>
+            <p>Enter your details to continue</p>
+          </div>
+
+          <form id="loginForm">
+            <div class="form-group">
+              <label>Login Role</label>
+              <div class="input-wrapper">
+                <i data-lucide="shield-check"></i>
+                <select id="role" class="form-control" required>
+                  <option value="Researcher">Researcher</option>
+                  <option value="Patient">Patient</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Email Address</label>
+              <div class="input-wrapper">
+                <i data-lucide="mail"></i>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="name@stackly.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Password</label>
+              <div class="input-wrapper">
+                <i data-lucide="lock"></i>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-options">
+              <label class="checkbox-group">
+                <input type="checkbox" /> Remember me
+              </label>
+              <a href="./404.html" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <!-- Updated Button with Badge -->
+            <button type="submit" class="btn-login" id="loginBtn">
+              Sign In Now
+              <div class="btn-icon">
+                <i data-lucide="arrow-right"></i>
+              </div>
+            </button>
+
+            <p class="signup-prompt">
+              New to STACKLY?
+              <a href="./signup.html" class="signup-link">Create Account</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      lucide.createIcons();
+
+      window.addEventListener("load", () => {
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+        tl.from(".main-wrapper", { y: 30, opacity: 0, duration: 1 })
+          .from(
+            ".left-panel",
+            { xPercent: -50, opacity: 0, duration: 0.8 },
+            "-=0.5",
+          )
+          .from(
+            ".brand-content > *",
+            { y: 20, opacity: 0, stagger: 0.1, duration: 0.6 },
+            "-=0.3",
+          )
+          .from(
+            ".form-container > *",
+            { y: 20, opacity: 0, stagger: 0.1, duration: 0.6 },
+            "-=0.5",
+          );
+      });
+
+      const loginForm = document.getElementById("loginForm");
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const role = document.getElementById("role").value;
+        const btn = document.getElementById("loginBtn");
+
+        btn.style.pointerEvents = "none";
+        btn.style.opacity = "0.7";
+        btn.innerHTML = `Processing... <div class="btn-icon"><i data-lucide="loader-2" class="spin"></i></div>`;
+        lucide.createIcons();
+
+        setTimeout(() => {
+          window.location.href =
+            role === "Researcher"
+              ? "researcher-dashboard.html"
+              : "patient-dashboard.html";
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>

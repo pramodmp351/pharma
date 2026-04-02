@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Contact Us | Scientific Research Solutions</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="./footer.css" />
+    <link rel="stylesheet" href="./nav.css" />
+    <style>
+      :root {
+        --primary-dark: #0b3c4c;
+        --secondary-dark: #0e4a5f;
+        --teal-mid: #0fa3a6;
+        --teal-bright: #1bc5bd;
+        --bg-light: #f5f7f9;
+        --white: #ffffff;
+        --text-muted: #5f7a86;
+        --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        --border-radius: 16px;
+        --container-width: 1200px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      html,
+      body {
+        width: 100%;
+        overflow-x: hidden;
+        background-color: var(--white);
+        color: var(--primary-dark);
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Plus+Jakarta+Sans", sans-serif;
+        font-weight: 800;
+      }
+
+      .gradient-text {
+        background: linear-gradient(90deg, var(--teal-mid), var(--teal-bright));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        background: var(--white);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 100px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--teal-mid);
+        margin-bottom: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      }
+
+      .badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: var(--teal-bright);
+        border-radius: 50%;
+      }
+
+      /* SECTION 0 - IMPROVED MINI HERO */
+      .mini-hero {
+        position: relative;
+        width: 100%;
+        height: 320px; /* Slightly taller for better impact */
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+        color: var(--white);
+        background: var(--primary-dark);
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("./assets/h4.webp");
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        opacity: 0.6;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          rgba(11, 60, 76, 0.95) 0%,
+          rgba(11, 60, 76, 0.7) 50%,
+          rgba(11, 60, 76, 0.4) 100%
+        );
+        z-index: 2;
+      }
+
+      /* Tech Grid Pattern */
+      .hero-pattern {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+          rgba(27, 197, 189, 0.15) 1px,
+          transparent 1px
+        );
+        background-size: 30px 30px;
+        z-index: 3;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 10;
+        max-width: var(--container-width);
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 24px;
+      }
+
+      .hero-badge-glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--white);
+        box-shadow: none;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 12px;
+      }
+
+      .hero-bread {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 500;
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* SECTION 1 - CONTACT SECTION */
+      .contact-section {
+        padding: 100px 0;
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding-left: 24px;
+        padding-right: 24px;
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 60px;
+        align-items: start;
+      }
+
+      .left-content .description {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        max-width: 480px;
+        margin-bottom: 40px;
+      }
+
+      .divider {
+        height: 1px;
+        background: #e5e9eb;
+        margin: 40px 0;
+        width: 100%;
+        transform-origin: left;
+      }
+
+      .info-row {
+        display: flex;
+        gap: 24px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 200px;
+      }
+
+      .icon-circle {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: var(--white);
+        border: 1px solid #e5e9eb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--teal-mid);
+      }
+
+      .info-text span {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+      }
+
+      .info-text p {
+        font-weight: 700;
+        color: var(--primary-dark);
+        word-break: break-word;
+      }
+
+      .support-card {
+        background: var(--white);
+        padding: 24px 30px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        border-left: 5px solid var(--teal-mid);
+        display: inline-block;
+        width: 100%;
+        max-width: 340px;
+      }
+
+      .support-card .label {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-bottom: 4px;
+      }
+
+      .support-card .number {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: var(--teal-bright);
+      }
+
+      /* FORM CARD */
+      .form-card {
+        background: var(--bg-light);
+        padding: 40px;
+        border-radius: 30px;
+        width: 100%;
+      }
+
+      .form-card h2 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .input-group input,
+      .input-group textarea {
+        width: 100%;
+        padding: 16px 20px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        background: var(--white);
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .input-group input:focus,
+      .input-group textarea:focus {
+        outline: none;
+        border-color: var(--teal-mid);
+        box-shadow: 0 0 0 4px rgba(27, 197, 189, 0.1);
+      }
+
+      .full-width {
+        grid-column: span 2;
+      }
+
+      textarea {
+        resize: none;
+        height: 140px;
+      }
+
+      /* SUBMIT BUTTON DESIGN */
+      .btn-submit-container {
+        margin-top: 24px;
+        display: flex;
+      }
+
+      .btn-send {
+        position: relative;
+        padding: 8px 8px 8px 30px;
+        border: none;
+        border-radius: 100px;
+        background: linear-gradient(
+          135deg,
+          var(--secondary-dark),
+          var(--teal-mid)
+        );
+        color: var(--white);
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        transition: var(--transition);
+      }
+
+      .btn-icon-circle {
+        width: 42px;
+        height: 42px;
+        background: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--secondary-dark);
+        transition: var(--transition);
+      }
+
+      .btn-send:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(15, 163, 166, 0.3);
+      }
+
+      .btn-send:hover .btn-icon-circle {
+        transform: rotate(-45deg);
+      }
+
+      /* SECTION 2 - MAP */
+      .map-section {
+        padding-bottom: 100px;
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding-left: 24px;
+        padding-right: 24px;
+        text-align: center;
+      }
+
+      .map-header {
+        margin-bottom: 50px;
+      }
+
+      .map-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+      }
+
+      .map-header p {
+        color: var(--text-muted);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .map-container {
+        width: 100%;
+        height: 450px;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(11, 60, 76, 0.1);
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        filter: grayscale(0.2) contrast(1.1);
+      }
+
+      /* RESPONSIVE FIXES */
+      @media (max-width: 1024px) {
+        .contact-section {
+          grid-template-columns: 1fr;
+          gap: 60px;
+          padding: 60px 24px;
+        }
+        .mini-hero {
+          height: 280px;
+          border-bottom-left-radius: 40px;
+          border-bottom-right-radius: 40px;
+        }
+        .hero-title {
+          font-size: 2.8rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mini-hero {
+          height: 240px;
+          text-align: center;
+          border-bottom-left-radius: 30px;
+          border-bottom-right-radius: 30px;
+        }
+        .hero-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .hero-title {
+          font-size: 2rem;
+        }
+        .hero-bread {
+          font-size: 0.85rem;
+        }
+        .section-title {
+          font-size: 2.2rem !important;
+        }
+        .form-card {
+          padding: 30px 20px;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .full-width {
+          grid-column: span 1;
+        }
+        .info-row {
+          flex-direction: column;
+          gap: 24px;
+        }
+        .support-card {
+          max-width: 100%;
+        }
+        .map-header h2 {
+          font-size: 2rem;
+        }
+        .map-container {
+          height: 350px;
+        }
+
+        .btn-send {
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 1.8rem;
+        }
+        .section-title {
+          font-size: 1.8rem !important;
+        }
+        .support-card .number {
+          font-size: 1.5rem;
+        }
+        .form-card h2 {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="topbar-container">
+        <div class="topbar-left">
+          <svg class="top-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v4l3 3"></path>
+          </svg>
+          Welcome to Stackly – Next Gen Medicines
+        </div>
+        <div class="topbar-right">
+          <a href="./404.html" class="topbar-item">
+            <svg class="top-icon" viewBox="0 0 24 24">
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>hello@stackly.med</span>
+          </a>
+          <div class="topbar-item">
+            <svg class="top-icon" viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.28-2.28a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            <span>+1 (555) 000-1234</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header id="mainHeader">
+      <div class="nav-wrapper">
+        <nav class="navbar-shape">
+          <a href="./index.html" class="logo">
+            <div class="logo-placeholder">STACK<span>LY</span></div>
+          </a>
+
+          <ul class="nav-menu">
+            <li>
+              <a href="./index.html" class="nav-link active">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                HOME
+              </a>
+            </li>
+            <li>
+              <a href="./service.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  ></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                SERVICES
+              </a>
+            </li>
+            <li>
+              <a href="./about.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                ABOUT
+              </a>
+            </li>
+            <li>
+              <a href="./blog.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path
+                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                  ></path>
+                </svg>
+                BLOG
+              </a>
+            </li>
+            <li>
+              <a href="./contact.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  ></path>
+                </svg>
+                CONTACT
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-btns">
+            <a href="./login.html" class="btn btn-outline">LOGIN</a>
+            <a href="./signup.html" class="btn btn-gradient">
+              GET STARTED
+              <div class="btn-icon-circle">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-container">
+          <a href="./index.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            HOME <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./service.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+              ></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            SERVICES <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./about.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            ABOUT <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./blog.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+              ></path>
+            </svg>
+            BLOG <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./contact.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              ></path>
+            </svg>
+            CONTACT <span class="arrow-suffix">→</span>
+          </a>
+        </div>
+
+        <div class="mobile-footer">
+          <a href="./login.html" class="btn btn-outline">LOGIN</a>
+          <a href="./signup.html" class="btn btn-gradient">
+            GET STARTED
+            <div class="btn-icon-circle">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- SECTION 0: IMPROVED MINI HERO -->
+    <section class="mini-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-pattern"></div>
+      <div class="hero-content">
+        <div class="badge hero-badge hero-badge-glass">Contact Us</div>
+        <h1 class="hero-title">
+          Contact our <br class="mobile-hide" />scientific team
+        </h1>
+        <div class="hero-bread">
+          <span>Home</span>
+          <i data-lucide="chevron-right" size="14"></i>
+          <span style="color: var(--teal-bright)">Contact Us</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: CONTACT CONTENT -->
+    <section class="contact-section">
+      <div class="left-content">
+        <div class="badge left-badge">Contact Us</div>
+        <h2
+          class="section-title"
+          style="font-size: 3rem; line-height: 1.1; margin-bottom: 24px"
+        >
+          Let discuss your scientific <br />
+          <span class="gradient-text">research needs</span>
+        </h2>
+        <p class="description">
+          We're here to support your research goals with expert guidance and
+          laboratory solutions whether you need advanced testing or experimental
+          design.
+        </p>
+
+        <div class="divider"></div>
+
+        <div class="info-row">
+          <div class="info-item">
+            <div class="icon-circle">
+              <i data-lucide="map-pin"></i>
+            </div>
+            <div class="info-text">
+              <span>Location:</span>
+              <p>123 Science Park, City</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="icon-circle">
+              <i data-lucide="mail"></i>
+            </div>
+            <div class="info-text">
+              <span>E-mail Address:</span>
+              <p>info@domain.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="support-card">
+          <div class="label">Call Support 24/7:</div>
+          <div class="number">+00 12345 6789</div>
+        </div>
+      </div>
+
+      <div class="right-form">
+        <div class="form-card">
+          <h2>
+            Get in touch
+            <span
+              style="
+                font-weight: 400;
+                color: var(--teal-mid);
+                font-style: italic;
+              "
+              >with us</span
+            >
+          </h2>
+          <form class="form-grid" id="contactForm" action="./404.html">
+            <div class="input-group">
+              <input type="text" placeholder="First Name*" required />
+            </div>
+            <div class="input-group">
+              <input type="text" placeholder="Last Name" />
+            </div>
+            <div class="input-group">
+              <input type="number" placeholder="Phone Number" />
+            </div>
+            <div class="input-group">
+              <input type="email" placeholder="Email Address" />
+            </div>
+            <div class="input-group full-width">
+              <textarea placeholder="Write Message..."></textarea>
+            </div>
+            <div class="full-width btn-submit-container">
+              <button type="submit" class="btn-send">
+                Send Message
+                <span class="btn-icon-circle">
+                  <i data-lucide="arrow-up-right" size="20"></i>
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: MAP -->
+    <section class="map-section">
+      <div class="map-header">
+        <div class="badge">Our Location</div>
+        <h2>Find our laboratory <span class="gradient-text">location</span></h2>
+        <p>
+          Get in touch with GymPro to learn more about our programs,
+          memberships, and training options. Our team is here to answer your
+          questions.
+        </p>
+      </div>
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.2528082187!2d-74.11976373946229!3d40.697403442226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+          allowfullscreen=""
+          loading="lazy"
+        >
+        </iframe>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="container">
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+          <div class="newsletter-content">
+            <h2>Stay updated with the latest research insights</h2>
+          </div>
+          <form class="newsletter-form" id="newsletterForm" action="./404.html">
+            <input type="email" placeholder="Enter Email Address*" required />
+            <button type="submit" class="subscribe-btn">
+              Subscribe
+              <div class="icon-circle">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </button>
+          </form>
+        </section>
+
+        <!-- Main Footer Grid -->
+        <div class="footer-grid">
+          <!-- Column 1: Info & Hours -->
+          <div class="footer-col-info">
+            <div
+              class="footer-logo-wrapper"
+              onclick="window.location.href = './index.html'"
+            >
+              <img
+                src="./assets/logo.webp"
+                alt="Genlab Logo"
+                class="footer-logo"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'block';
+                "
+              />
+              <span class="logo-text" style="display: none"
+                >Genlab<span class="logo-dot">.</span></span
+              >
+            </div>
+            <p class="footer-description">
+              We support discovery across healthcare, biotechnology, & sciences.
+            </p>
+
+            <div class="working-hours">
+              <h4>Working Hours:</h4>
+              <div class="hours-row">
+                <span class="hours-label">Monday - Friday:-</span>
+                <span>10:00 - 05:00</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-label">Saturday:-</span>
+                <span>10:00 - 04:00</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-label">Sunday:-</span>
+                <span>Closed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./service.html">Our Services</a></li>
+              <li><a href="./blog.html">Our Blogs</a></li>
+              <li><a href="./contact.html">Contact US</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Services -->
+          <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul class="footer-links">
+              <li><a href="./404.html">Diagnostic Testing</a></li>
+              <li><a href="./404.html">Laboratory Analysis</a></li>
+              <li><a href="./404.html">Industrial Testing</a></li>
+              <li><a href="./404.html">Clinical</a></li>
+              <li><a href="./404.html">Chemical</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Social -->
+          <div class="footer-col">
+            <h4>Follow Us On Social</h4>
+            <p class="social-desc">
+              Connect with us online for updates, breakthroughs, & lab
+              highlights.
+            </p>
+            <div class="social-icons">
+              <a href="./404.html" class="social-icon" aria-label="Pinterest">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.966 1.406-5.966s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.261 7.929-7.261 4.162 0 7.397 2.966 7.397 6.93 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="X">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="Facebook">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="Instagram">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.584-.071 4.85c-.055 1.171-.248 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.056.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.015-4.85-.071c-1.171-.055-1.805-.248-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.584.071-4.85c.055-1.171.248-1.805.413-2.227.217-.562.477-.96.896-1.382.42-.419.819-.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+          <div class="copyright">Copyright © 2026 All Rights Reserved.</div>
+          <div class="bottom-links">
+            <a href="./404.html">Privacy Policy</a>
+            <a href="./404.html">Legal Documents</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./nav.js"></script>
+    <script src="./footer.js"></script>
+    <script>
+      // Initialize Icons
+      lucide.createIcons();
+
+      // GSAP Animations
+      window.addEventListener("load", () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 1. Mini Hero Animations
+        const heroTl = gsap.timeline();
+
+        heroTl
+          .from(".hero-bg", {
+            scale: 1.3,
+            duration: 3,
+            ease: "power2.out",
+          })
+          .from(
+            ".hero-badge",
+            {
+              scale: 0.8,
+              opacity: 0,
+              duration: 0.8,
+              ease: "back.out(1.7)",
+            },
+            "-=2.2",
+          )
+          .from(
+            ".hero-title",
+            {
+              y: 50,
+              opacity: 0,
+              duration: 1.2,
+              ease: "power4.out",
+            },
+            "-=1.8",
+          )
+          .from(
+            ".hero-bread",
+            {
+              opacity: 0,
+              y: 10,
+              duration: 0.8,
+            },
+            "-=1",
+          )
+          .from(
+            ".hero-pattern",
+            {
+              opacity: 0,
+              duration: 2,
+            },
+            "-=2",
+          );
+
+        // 2. Contact Section Left
+        gsap.from(".left-content > *", {
+          scrollTrigger: {
+            trigger: ".left-content",
+            start: "top 80%",
+          },
+          x: -50,
+          opacity: 0,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power3.out",
+        });
+
+        gsap.from(".divider", {
+          scrollTrigger: {
+            trigger: ".divider",
+            start: "top 90%",
+          },
+          scaleX: 0,
+          duration: 1.5,
+          ease: "power3.inOut",
+        });
+
+        gsap.from(".support-card", {
+          scrollTrigger: {
+            trigger: ".support-card",
+            start: "top 95%",
+          },
+          scale: 0.8,
+          opacity: 0,
+          duration: 1,
+          ease: "back.out(1.7)",
+        });
+
+        // 3. Form Animations
+        gsap.from(".form-card", {
+          scrollTrigger: {
+            trigger: ".form-card",
+            start: "top 80%",
+          },
+          x: 50,
+          opacity: 0,
+          duration: 1.2,
+          ease: "power3.out",
+        });
+
+        gsap.from(".input-group", {
+          scrollTrigger: {
+            trigger: ".form-grid",
+            start: "top 85%",
+          },
+          y: 20,
+          opacity: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power2.out",
+        });
+
+        // 4. Map Section
+        gsap.from(".map-header", {
+          scrollTrigger: {
+            trigger: ".map-header",
+            start: "top 85%",
+          },
+          y: 40,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+        });
+
+        gsap.from(".map-container", {
+          scrollTrigger: {
+            trigger: ".map-container",
+            start: "top 85%",
+          },
+          y: 60,
+          opacity: 0,
+          duration: 1.5,
+          ease: "power3.out",
+        });
+      });
+
+      // Form Submit Interaction
+      // document.getElementById("contactForm").addEventListener("submit", (e) => {
+      //   e.preventDefault();
+      //   const btn = e.target.querySelector("button");
+      //   const btnText = btn.childNodes[0];
+      //   const originalText = btnText.textContent;
+
+      //   btnText.textContent = "Sending...";
+      //   btn.style.opacity = "0.7";
+      //   btn.style.pointerEvents = "none";
+
+      //   setTimeout(() => {
+      //     btnText.textContent = "Sent! ✓";
+      //     btn.style.background = "var(--teal-bright)";
+      //     btn.style.opacity = "1";
+
+      //     setTimeout(() => {
+      //       btnText.textContent = originalText;
+      //       btn.style.background = "";
+      //       btn.style.pointerEvents = "all";
+      //       e.target.reset();
+      //     }, 3000);
+      //   }, 1500);
+      // });
+    </script>
+  </body>
+</html>

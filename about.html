@@ -1,0 +1,1527 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Our Scientific Laboratory</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./footer.css" />
+    <link rel="stylesheet" href="./nav.css" />
+    <style>
+      :root {
+        --primary-dark: #0b3c4c;
+        --secondary-dark: #0e4a5f;
+        --teal-main: #0fa3a6;
+        --teal-bright: #1bc5bd;
+        --teal-accent: #2ed1c1;
+        --bg-light: #f5f7f9;
+        --white: #ffffff;
+        --text-muted: #5f7a86;
+        --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 10px 40px rgba(11, 60, 76, 0.08);
+        --border-radius: 24px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: var(--white);
+        color: var(--primary-dark);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .serif {
+        font-family: "Instrument Serif", serif;
+        font-weight: 400;
+        font-style: italic;
+      }
+
+      /* --- Global Components --- */
+      .section-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 100px 24px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        background: rgba(15, 163, 166, 0.1);
+        color: var(--teal-main);
+        border-radius: 100px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      .badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: var(--teal-main);
+        border-radius: 50%;
+      }
+
+      .gradient-text {
+        background: linear-gradient(
+          90deg,
+          var(--primary-dark),
+          var(--teal-main)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .btn-gradient {
+        height: 58px;
+        padding: 0 8px 0 24px;
+        background: linear-gradient(
+          135deg,
+          var(--teal-main),
+          var(--teal-bright)
+        );
+        color: var(--white);
+        border: none;
+        border-radius: 100px;
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+        box-shadow: 0 10px 30px rgba(15, 163, 166, 0.3);
+      }
+
+      .btn-gradient .icon-circle {
+        width: 42px;
+        height: 42px;
+        background: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--teal-main);
+        transition: var(--transition-smooth);
+      }
+
+      .btn-gradient:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 40px rgba(15, 163, 166, 0.4);
+      }
+
+      .btn-gradient:hover .icon-circle {
+        transform: translateX(4px);
+      }
+
+      /* --- Section 0: Mini Hero --- */
+      .mini-hero {
+        height: 280px;
+        position: relative;
+        background: var(--primary-dark);
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+        color: var(--white);
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("./assets/h4.webp") center/cover;
+        opacity: 0.3;
+        z-index: 1;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, var(--primary-dark), transparent);
+        z-index: 2;
+      }
+
+      .mini-hero .content {
+        position: relative;
+        z-index: 3;
+        max-width: 1280px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .mini-hero .badge {
+        background: rgba(255, 255, 255, 0.15);
+        color: var(--white);
+      }
+
+      .mini-hero .badge::before {
+        background: var(--white);
+      }
+
+      .mini-hero h1 {
+        font-size: clamp(32px, 5vw, 42px);
+        margin-bottom: 12px;
+      }
+
+      .breadcrumb {
+        font-size: 14px;
+        opacity: 0.7;
+      }
+
+      /* --- Section 1: About --- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .about-visual {
+        position: relative;
+      }
+
+      .main-lab-img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+      }
+
+      .video-card {
+        position: absolute;
+        top: 40px;
+        left: -40px;
+        background: var(--white);
+        padding: 24px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-md);
+        width: 240px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 5;
+      }
+
+      .video-thumbnail {
+        width: 100%;
+        height: 140px;
+        background: url("./assets/gen1.webp") center/cover;
+        border-radius: 12px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .play-btn {
+        width: 40px;
+        height: 40px;
+        background: var(--teal-main);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+      }
+
+      .vertical-tag {
+        position: absolute;
+        left: 20px;
+        bottom: 60px;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-weight: 700;
+        color: var(--primary-dark);
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 5;
+      }
+
+      .about-content h2 {
+        font-size: clamp(32px, 4vw, 48px);
+        margin-bottom: 24px;
+      }
+
+      .about-content p {
+        color: var(--text-muted);
+        margin-bottom: 40px;
+        font-size: clamp(16px, 2vw, 18px);
+      }
+
+      .mission-vision {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid #e5e9eb;
+      }
+
+      .mv-item h4 {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+        font-size: 18px;
+      }
+
+      .mv-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(
+          135deg,
+          var(--teal-main),
+          var(--teal-bright)
+        );
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+      }
+
+      .mv-item p {
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+
+      .about-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .doctor-info {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .doctor-info img {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .doctor-name {
+        font-weight: 700;
+        display: block;
+      }
+
+      .doctor-role {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      /* --- Section 2: Team --- */
+      .team-section {
+        background: radial-gradient(
+          circle at top right,
+          var(--secondary-dark),
+          var(--primary-dark)
+        );
+        color: var(--white);
+        position: relative;
+        overflow: hidden;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      .team-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.05) 1px,
+          transparent 1px
+        );
+        background-size: 40px 40px;
+        z-index: 1;
+      }
+
+      .team-header {
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 60px;
+      }
+
+      .team-header h2 {
+        font-size: clamp(32px, 4vw, 44px);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+        position: relative;
+        z-index: 2;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .team-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--border-radius);
+        padding: 16px;
+        transition: var(--transition-smooth);
+      }
+
+      .team-img-wrapper {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        aspect-ratio: 4/5;
+        margin-bottom: 20px;
+      }
+
+      .team-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      .share-btn {
+        position: absolute;
+        bottom: 16px;
+        right: 16px;
+        width: 44px;
+        height: 44px;
+        background: var(--teal-main);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        cursor: pointer;
+      }
+
+      .team-info {
+        padding: 0 8px 12px;
+      }
+      .team-info h3 {
+        font-size: 20px;
+        margin-bottom: 4px;
+      }
+      .team-info p {
+        font-size: 14px;
+        color: var(--teal-accent);
+        font-weight: 500;
+      }
+
+      .team-card:hover {
+        background: rgba(255, 255, 255, 0.08);
+        transform: translateY(-10px);
+        border-color: var(--teal-main);
+      }
+
+      .team-card:hover .team-img-wrapper img {
+        transform: scale(1.08);
+      }
+
+      /* --- Section 3: Testimonials Slider --- */
+      .testimonials-section {
+        background-color: var(--bg-light);
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .testimonials-container {
+        position: relative;
+        margin-top: 60px;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 400px; /* Fixed height for slide container */
+      }
+
+      .testimonial-slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .testimonial-card {
+        background: var(--white);
+        padding: clamp(24px, 5vw, 48px);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-sm);
+        text-align: left;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition-smooth);
+      }
+
+      .testimonial-card.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .stars {
+        color: var(--teal-accent);
+        display: flex;
+        gap: 4px;
+        margin-bottom: 24px;
+      }
+      .testimonial-text {
+        font-size: clamp(16px, 2vw, 18px);
+        color: var(--text-muted);
+        margin-bottom: 32px;
+        font-style: italic;
+      }
+
+      .testimonial-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 32px;
+        border-top: 1px solid #eef2f4;
+      }
+
+      .client-info {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .client-info img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .quote-icon {
+        opacity: 0.1;
+        color: var(--primary-dark);
+      }
+
+      /* --- Section 4: FAQ --- */
+      .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: flex-start;
+      }
+
+      .faq-visual {
+        position: relative;
+      }
+      .faq-main-img {
+        width: 100%;
+        height: 540px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+      }
+
+      .support-card {
+        position: absolute;
+        bottom: 40px;
+        left: -40px;
+        background: var(--white);
+        padding: clamp(20px, 4vw, 32px);
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-md);
+        width: clamp(240px, 80%, 300px);
+        z-index: 5;
+      }
+
+      .support-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(15, 163, 166, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--teal-main);
+        margin-bottom: 20px;
+      }
+
+      .support-card h4 {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+      .phone-link {
+        font-weight: 700;
+        color: var(--teal-main);
+        font-size: 20px;
+        text-decoration: none;
+      }
+
+      .faq-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 40px;
+      }
+      .accordion-item {
+        background: var(--white);
+        border: 1px solid #e5e9eb;
+        border-radius: 100px;
+        overflow: hidden;
+        transition: var(--transition-smooth);
+      }
+
+      .accordion-header {
+        padding: 20px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      .accordion-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--primary-dark);
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-smooth);
+      }
+
+      .accordion-content {
+        max-height: 0;
+        padding: 0 32px;
+        overflow: hidden;
+        transition: var(--transition-smooth);
+        color: var(--text-muted);
+        font-size: 15px;
+      }
+
+      .accordion-item.active {
+        border-radius: 24px;
+        border-color: var(--teal-main);
+      }
+      .accordion-item.active .accordion-icon {
+        background: var(--teal-main);
+        transform: rotate(180deg);
+      }
+      .accordion-item.active .accordion-content {
+        max-height: 200px;
+        padding-bottom: 24px;
+      }
+
+      /* --- Responsive Design Fixed --- */
+      @media (max-width: 1024px) {
+        .about-grid,
+        .testimonials-grid,
+        .faq-grid {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .video-card,
+        .support-card {
+          position: relative;
+          left: 0;
+          bottom: 0;
+          margin-top: -60px;
+          margin-left: 20px;
+        }
+        .vertical-tag {
+          display: none;
+        }
+        .about-visual,
+        .faq-visual {
+          padding-bottom: 20px;
+        }
+        .main-lab-img,
+        .faq-main-img {
+          height: 400px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-container {
+          padding: 60px 20px;
+        }
+        .mini-hero {
+          height: 220px;
+          border-bottom-left-radius: 40px;
+          border-bottom-right-radius: 40px;
+        }
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+        .mission-vision {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .btn-gradient {
+          width: 100%;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        }
+        .doctor-info {
+          width: 100%;
+          justify-content: flex-start;
+        }
+        .testimonials-container {
+          height: 480px;
+        }
+        .accordion-header {
+          padding: 16px 20px;
+          font-size: 14px;
+        }
+        .accordion-item {
+          border-radius: 30px;
+        }
+        .support-card {
+          margin-top: -80px;
+          margin-left: 10px;
+          width: calc(100% - 20px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="topbar-container">
+        <div class="topbar-left">
+          <svg class="top-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v4l3 3"></path>
+          </svg>
+          Welcome to Stackly – Next Gen Medicines
+        </div>
+        <div class="topbar-right">
+          <a href="./404.html" class="topbar-item">
+            <svg class="top-icon" viewBox="0 0 24 24">
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>hello@stackly.med</span>
+          </a>
+          <div class="topbar-item">
+            <svg class="top-icon" viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.28-2.28a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            <span>+1 (555) 000-1234</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header id="mainHeader">
+      <div class="nav-wrapper">
+        <nav class="navbar-shape">
+          <a href="./index.html" class="logo">
+            <div class="logo-placeholder">STACK<span>LY</span></div>
+          </a>
+
+          <ul class="nav-menu">
+            <li>
+              <a href="./index.html" class="nav-link active">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                HOME
+              </a>
+            </li>
+            <li>
+              <a href="./service.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  ></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                SERVICES
+              </a>
+            </li>
+            <li>
+              <a href="./about.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                ABOUT
+              </a>
+            </li>
+            <li>
+              <a href="./blog.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path
+                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                  ></path>
+                </svg>
+                BLOG
+              </a>
+            </li>
+            <li>
+              <a href="./contact.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  ></path>
+                </svg>
+                CONTACT
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-btns">
+            <a href="./login.html" class="btn btn-outline">LOGIN</a>
+            <a href="./signup.html" class="btn btn-gradient">
+              GET STARTED
+              <div class="btn-icon-circle">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-container">
+          <a href="./index.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            HOME <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./service.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+              ></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            SERVICES <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./about.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            ABOUT <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./blog.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+              ></path>
+            </svg>
+            BLOG <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./contact.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              ></path>
+            </svg>
+            CONTACT <span class="arrow-suffix">→</span>
+          </a>
+        </div>
+
+        <div class="mobile-footer">
+          <a href="./login.html" class="btn btn-outline">LOGIN</a>
+          <a href="./signup.html" class="btn btn-gradient">
+            GET STARTED
+            <div class="btn-icon-circle">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- Section 0: Mini Hero -->
+    <section class="mini-hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="content">
+        <span class="badge">About Us</span>
+        <h1 class="anim-reveal">About our scientific laboratory</h1>
+        <p class="breadcrumb">Home / About</p>
+      </div>
+    </section>
+
+    <!-- Section 1: About Laboratory -->
+    <section class="section-container" id="about">
+      <div class="about-grid">
+        <div class="about-visual anim-left">
+          <img
+            src="./assets/b10.webp"
+            alt="Laboratory Scientist"
+            class="main-lab-img"
+          />
+          <div class="video-card float-anim">
+            <div class="video-thumbnail">
+              <div class="play-btn">
+                <i data-lucide="play" fill="white" size="18"></i>
+              </div>
+            </div>
+            <span style="font-weight: 700; font-size: 14px"
+              >Laboratory Overview</span
+            >
+          </div>
+          <div class="vertical-tag">
+            <i data-lucide="shield-check" size="16"></i> 24/7 Emergency Support
+          </div>
+        </div>
+
+        <div class="about-content anim-right">
+          <span class="badge">About Our Laboratory</span>
+          <h2>
+            Bridging theory &
+            <span class="gradient-text serif">applied scientific research</span>
+          </h2>
+          <p>
+            We take scientific theories and turn them into real-world solutions.
+            Through accurate testing, experimentation, and analysis, we help our
+            partners achieve breakthrough results.
+          </p>
+
+          <div class="mission-vision">
+            <div class="mv-item">
+              <h4>
+                <div class="mv-icon">
+                  <i data-lucide="beaker" size="18"></i>
+                </div>
+                Our Mission
+              </h4>
+              <p>
+                Our mission is to validate and conduct high-accuracy
+                experimentation across all scientific verticals.
+              </p>
+            </div>
+            <div class="mv-item">
+              <h4>
+                <div class="mv-icon"><i data-lucide="gem" size="18"></i></div>
+                Our Vision
+              </h4>
+              <p>
+                Our vision is to define the future of sustainable and ethical
+                lab research globally.
+              </p>
+            </div>
+          </div>
+
+          <div class="about-footer">
+            <a href="./404.html" class="btn-gradient">
+              More About Us
+              <div class="icon-circle">
+                <i data-lucide="arrow-up-right" size="18"></i>
+              </div>
+            </a>
+            <div class="doctor-info">
+              <img src="./assets/m4.webp" alt="Savannah Nguyen" />
+              <div>
+                <span class="doctor-name">Savannah Nguyen</span>
+                <span class="doctor-role">Medical Assistant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Team Section -->
+    <section class="team-section section-container">
+      <div class="team-header anim-up">
+        <span class="badge">Our Team</span>
+        <h2>
+          Meet our dedicated team of
+          <span
+            class="gradient-text serif"
+            style="
+              background: linear-gradient(90deg, #fff, var(--teal-accent));
+              -webkit-background-clip: text;
+            "
+            >scientific experts</span
+          >
+        </h2>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card anim-stagger">
+          <div class="team-img-wrapper">
+            <img src="./assets/m5.webp" alt="Dr. Michael Anderson" />
+            <div
+              class="share-btn"
+              onclick="window.location.href = './404.html'"
+            >
+              <i data-lucide="share-2" size="18"></i>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3>Dr. Michael Anderson</h3>
+            <p>Chief Scientific Officer</p>
+          </div>
+        </div>
+        <div class="team-card anim-stagger">
+          <div class="team-img-wrapper">
+            <img src="./assets/m6.webp" alt="Dr. Jonathan Miller" />
+            <div
+              class="share-btn"
+              onclick="window.location.href = './404.html'"
+            >
+              <i data-lucide="share-2" size="18"></i>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3>Dr. Jonathan Miller</h3>
+            <p>Senior Research Scientist</p>
+          </div>
+        </div>
+        <div class="team-card anim-stagger">
+          <div class="team-img-wrapper">
+            <img src="./assets/m4.webp" alt="Dr. Emily Carter" />
+            <div
+              class="share-btn"
+              onclick="window.location.href = './404.html'"
+            >
+              <i data-lucide="share-2" size="18"></i>
+            </div>
+          </div>
+          <div class="team-info">
+            <h3>Dr. Emily Carter</h3>
+            <p>Laboratory Operations Manager</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Testimonials Slider -->
+    <section class="testimonials-section section-container">
+      <div class="anim-up">
+        <span class="badge">Our Testimonials</span>
+        <h2>
+          Real stories from trusted
+          <span class="gradient-text serif">laboratory clients</span>
+        </h2>
+      </div>
+
+      <div class="testimonials-container">
+        <div class="testimonial-slider">
+          <!-- Slide 1 -->
+          <div class="testimonial-card active">
+            <div class="stars">
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+            </div>
+            <p class="testimonial-text">
+              "Working with this laboratory has been an exceptional experience
+              from start to finish. The level of accuracy and professionalism
+              demonstrated by the team is truly impressive."
+            </p>
+            <div class="testimonial-footer">
+              <div class="client-info">
+                <img src="./assets/ch2.webp" alt="Prof. Arjun Malhotra" />
+                <div>
+                  <span class="doctor-name">Prof. Arjun Malhotra</span>
+                  <span class="doctor-role">Department of Life Sciences</span>
+                </div>
+              </div>
+              <i data-lucide="quote" class="quote-icon" size="32"></i>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+            </div>
+            <p class="testimonial-text">
+              "Their commitment to precision and rapid turnaround times has
+              significantly accelerated our pharmaceutical research phase.
+              Highly recommended."
+            </p>
+            <div class="testimonial-footer">
+              <div class="client-info">
+                <img src="./assets/ch1.webp" alt="Dr. Albert Flores" />
+                <div>
+                  <span class="doctor-name">Dr. Albert Flores</span>
+                  <span class="doctor-role">Senior Research Scientist</span>
+                </div>
+              </div>
+              <i data-lucide="quote" class="quote-icon" size="32"></i>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="testimonial-card">
+            <div class="stars">
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+              <i data-lucide="star" fill="currentColor" size="16"></i>
+            </div>
+            <p class="testimonial-text">
+              "The diagnostic equipment and the depth of analysis provided here
+              are unmatched. Our collaborative projects have always been
+              successful."
+            </p>
+            <div class="testimonial-footer">
+              <div class="client-info">
+                <img src="./assets/ch3.webp" alt="Dr. Emily Carter" />
+                <div>
+                  <span class="doctor-name">Dr. Emily Carter</span>
+                  <span class="doctor-role">Lab Operations</span>
+                </div>
+              </div>
+              <i data-lucide="quote" class="quote-icon" size="32"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: FAQ -->
+    <section class="section-container">
+      <div class="faq-grid">
+        <div class="faq-visual anim-left">
+          <img
+            src="./assets/b11.webp"
+            alt="Lab Research"
+            class="faq-main-img"
+          />
+          <div class="support-card float-anim">
+            <div class="support-icon">
+              <i data-lucide="help-circle" size="24"></i>
+            </div>
+            <h4>Knowledge That Supports Your Research</h4>
+            <a href="tel:+123456789" class="phone-link">+123 456 789</a>
+          </div>
+        </div>
+
+        <div class="faq-content anim-right">
+          <span class="badge">Frequently Asked Questions</span>
+          <h2>
+            Answers to your
+            <span class="gradient-text serif"
+              >scientific research questions</span
+            >
+          </h2>
+
+          <div class="faq-accordion">
+            <div class="accordion-item active">
+              <div class="accordion-header">
+                1. What types of laboratory services do you offer?
+                <div class="accordion-icon">
+                  <i data-lucide="chevron-down" size="16"></i>
+                </div>
+              </div>
+              <div class="accordion-content">
+                We provide a comprehensive range of services including molecular
+                biology analysis, chemical composition testing, and clinical
+                trials support.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                2. How accurate are your test results?
+                <div class="accordion-icon">
+                  <i data-lucide="chevron-down" size="16"></i>
+                </div>
+              </div>
+              <div class="accordion-content">
+                Our laboratory maintains ISO/IEC 17025 accreditation, ensuring
+                that all testing protocols meet international standards.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                3. What industries do you support?
+                <div class="accordion-icon">
+                  <i data-lucide="chevron-down" size="16"></i>
+                </div>
+              </div>
+              <div class="accordion-content">
+                We currently support the pharmaceutical, biotechnology,
+                environmental science, and food safety industries.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="container">
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+          <div class="newsletter-content">
+            <h2>Stay updated with the latest research insights</h2>
+          </div>
+          <form class="newsletter-form" id="newsletterForm" action="./404.html">
+            <input type="email" placeholder="Enter Email Address*" required />
+            <button type="submit" class="subscribe-btn">
+              Subscribe
+              <div class="icon-circle">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </button>
+          </form>
+        </section>
+
+        <!-- Main Footer Grid -->
+        <div class="footer-grid">
+          <!-- Column 1: Info & Hours -->
+          <div class="footer-col-info">
+            <div
+              class="footer-logo-wrapper"
+              onclick="window.location.href = './index.html'"
+            >
+              <img
+                src="./assets/logo.webp"
+                alt="Genlab Logo"
+                class="footer-logo"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'block';
+                "
+              />
+              <span class="logo-text" style="display: none"
+                >Genlab<span class="logo-dot">.</span></span
+              >
+            </div>
+            <p class="footer-description">
+              We support discovery across healthcare, biotechnology, & sciences.
+            </p>
+
+            <div class="working-hours">
+              <h4>Working Hours:</h4>
+              <div class="hours-row">
+                <span class="hours-label">Monday - Friday:-</span>
+                <span>10:00 - 05:00</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-label">Saturday:-</span>
+                <span>10:00 - 04:00</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-label">Sunday:-</span>
+                <span>Closed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./service.html">Our Services</a></li>
+              <li><a href="./blog.html">Our Blogs</a></li>
+              <li><a href="./contact.html">Contact US</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Services -->
+          <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul class="footer-links">
+              <li><a href="./404.html">Diagnostic Testing</a></li>
+              <li><a href="./404.html">Laboratory Analysis</a></li>
+              <li><a href="./404.html">Industrial Testing</a></li>
+              <li><a href="./404.html">Clinical</a></li>
+              <li><a href="./404.html">Chemical</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Social -->
+          <div class="footer-col">
+            <h4>Follow Us On Social</h4>
+            <p class="social-desc">
+              Connect with us online for updates, breakthroughs, & lab
+              highlights.
+            </p>
+            <div class="social-icons">
+              <a href="./404.html" class="social-icon" aria-label="Pinterest">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.966 1.406-5.966s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.261 7.929-7.261 4.162 0 7.397 2.966 7.397 6.93 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="X">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="Facebook">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="Instagram">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.584-.071 4.85c-.055 1.171-.248 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.056.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.015-4.85-.071c-1.171-.055-1.805-.248-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.584.071-4.85c.055-1.171.248-1.805.413-2.227.217-.562.477-.96.896-1.382.42-.419.819-.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+          <div class="copyright">Copyright © 2026 All Rights Reserved.</div>
+          <div class="bottom-links">
+            <a href="./404.html">Privacy Policy</a>
+            <a href="./404.html">Legal Documents</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./nav.js"></script>
+    <script src="./footer.js"></script>
+    <script>
+      // Initialize Icons
+      lucide.createIcons();
+      gsap.registerPlugin(ScrollTrigger);
+
+      // --- Testimonial Auto-Slider (Every 1.5s) ---
+      function initSlider() {
+        const cards = document.querySelectorAll(".testimonial-card");
+        let current = 0;
+
+        setInterval(() => {
+          const next = (current + 1) % cards.length;
+
+          // Outgoing
+          gsap.to(cards[current], {
+            opacity: 0,
+            x: -50,
+            duration: 0.6,
+            onComplete: () => {
+              cards[current].classList.remove("active");
+              gsap.set(cards[current], { x: 50 }); // Reset position for next entry
+            },
+          });
+
+          // Incoming
+          cards[next].classList.add("active");
+          gsap.fromTo(
+            cards[next],
+            { opacity: 0, x: 50 },
+            { opacity: 1, x: 0, duration: 0.6 },
+          );
+
+          current = next;
+        }, 1500);
+      }
+
+      // --- Animations ---
+      window.addEventListener("load", () => {
+        initSlider();
+
+        // Hero Animation
+        gsap.from(".hero-bg", { scale: 1.3, duration: 3, ease: "power2.out" });
+        gsap.from(".anim-reveal", {
+          y: 50,
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+          delay: 0.2,
+        });
+
+        // Scroll Triggers
+        gsap.utils.toArray(".anim-left").forEach((el) => {
+          gsap.from(el, {
+            scrollTrigger: { trigger: el, start: "top 85%" },
+            x: -80,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+          });
+        });
+
+        gsap.utils.toArray(".anim-right").forEach((el) => {
+          gsap.from(el, {
+            scrollTrigger: { trigger: el, start: "top 85%" },
+            x: 80,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+          });
+        });
+
+        gsap.utils.toArray(".anim-up").forEach((el) => {
+          gsap.from(el, {
+            scrollTrigger: { trigger: el, start: "top 85%" },
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+          });
+        });
+
+        gsap.utils.toArray(".anim-stagger").forEach((el, i) => {
+          gsap.from(el, {
+            scrollTrigger: { trigger: el, start: "top 90%" },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            delay: i * 0.15,
+            ease: "power2.out",
+          });
+        });
+
+        // Float Animations
+        gsap.to(".float-anim", {
+          y: -15,
+          duration: 2,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      });
+
+      // --- FAQ Accordion ---
+      document.querySelectorAll(".accordion-header").forEach((header) => {
+        header.addEventListener("click", () => {
+          const item = header.parentElement;
+          const isActive = item.classList.contains("active");
+          document
+            .querySelectorAll(".accordion-item")
+            .forEach((i) => i.classList.remove("active"));
+          if (!isActive) item.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Genlab Scientific Footer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Colors from Screenshot */
+        --bg-primary: #0b3c4c;
+        --bg-secondary: #0a2f3f;
+        --accent-teal: #0fa3a6;
+        --accent-bright: #1bc5bd;
+        --text-white: #ffffff;
+        --text-muted: #94b2c1;
+        --card-bg: rgba(255, 255, 255, 0.04);
+        --input-bg: rgba(255, 255, 255, 0.08);
+        --border-color: rgba(255, 255, 255, 0.1);
+
+        /* Spacing */
+        --container-max: 1200px;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      body {
+        background-color: #f0f2f5;
+      }
+
+      /* --- Footer Styles --- */
+      .site-footer {
+        background: linear-gradient(
+          180deg,
+          var(--bg-primary) 0%,
+          var(--bg-secondary) 100%
+        );
+        color: var(--text-white);
+        position: relative;
+        overflow: hidden;
+        padding-top: 40px;
+      }
+
+      /* Hexagonal/Dot Pattern Overlay */
+      .site-footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+          rgba(15, 163, 166, 0.15) 1px,
+          transparent 1px
+        );
+        background-size: 40px 40px;
+        pointer-events: none;
+      }
+
+      .container {
+        max-width: var(--container-max);
+        margin: 0 auto;
+        padding: 0 24px;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* --- Newsletter Section --- */
+      .newsletter-section {
+        padding: 40px 0 60px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .newsletter-content h2 {
+        font-size: clamp(24px, 5vw, 36px);
+        font-weight: 600;
+        line-height: 1.1;
+        max-width: 500px;
+        letter-spacing: -0.02em;
+      }
+
+      .newsletter-form {
+        display: flex;
+        align-items: center;
+        background: var(--input-bg);
+        border-radius: 100px;
+        padding: 5px;
+        width: 100%;
+        max-width: 480px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        padding: 12px 25px;
+        color: white;
+        outline: none;
+        font-size: 15px;
+        width: 100%;
+      }
+
+      .newsletter-form input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      .subscribe-btn {
+        background: linear-gradient(90deg, #0b7a8d, #149ba3);
+        color: white;
+        border: none;
+        padding: 8px 10px 8px 24px;
+        border-radius: 100px;
+        font-weight: 600;
+        font-size: 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: var(--transition);
+        white-space: nowrap;
+      }
+
+      .subscribe-btn .icon-circle {
+        background: rgba(255, 255, 255, 0.95);
+        color: #0b7a8d;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+
+      .subscribe-btn:hover {
+        filter: brightness(1.1);
+        transform: translateX(3px);
+      }
+
+      .subscribe-btn:hover .icon-circle {
+        background: white;
+      }
+
+      /* --- Main Footer Grid --- */
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 60px 0;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .footer-col-info {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .footer-logo-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .footer-logo {
+        height: 90px;
+        width: auto;
+      }
+
+      .logo-text {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+
+      .logo-dot {
+        color: var(--accent-bright);
+      }
+
+      .footer-description {
+        color: var(--text-muted);
+        line-height: 1.6;
+        font-size: 15px;
+        max-width: 320px;
+      }
+
+      /* Working Hours Card */
+      .working-hours {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 28px;
+        margin-top: 15px;
+        max-width: 340px;
+      }
+
+      .working-hours h4 {
+        font-size: 16px;
+        margin-bottom: 22px;
+        font-weight: 700;
+      }
+
+      .hours-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        margin-bottom: 18px;
+        color: var(--text-muted);
+      }
+
+      .hours-row:last-child {
+        margin-bottom: 0;
+      }
+
+      .hours-label {
+        color: var(--text-white);
+        font-weight: 600;
+      }
+
+      /* List Columns */
+      .footer-col h4 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 28px;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 16px;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 15px;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .footer-links a::before {
+        content: "";
+        width: 4px;
+        height: 4px;
+        background: var(--accent-teal);
+        border-radius: 50%;
+      }
+
+      .footer-links a:hover {
+        color: var(--text-white);
+        transform: translateX(5px);
+      }
+
+      /* Social Section */
+      .social-desc {
+        font-size: 15px;
+        color: var(--text-muted);
+        margin-bottom: 25px;
+        line-height: 1.6;
+        max-width: 280px;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 14px;
+        padding-top: 10px;
+      }
+
+      .social-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--accent-teal);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        color: white;
+        text-decoration: none;
+      }
+
+      .social-icon:hover {
+        background: var(--accent-bright);
+        transform: scale(1.1);
+      }
+
+      /* --- Bottom Bar --- */
+      .footer-bottom {
+        padding: 35px 0;
+        border-top: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      .bottom-links {
+        display: flex;
+        gap: 25px;
+      }
+
+      .bottom-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 14px;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .bottom-links a:not(:last-child)::after {
+        content: "•";
+        margin-left: 15px;
+        color: var(--accent-teal);
+      }
+
+      .bottom-links a:hover {
+        color: var(--text-white);
+      }
+
+      /* --- Responsive Queries --- */
+
+      /* Tablet: 2 Columns */
+      @media (min-width: 640px) {
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .newsletter-section {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+          text-align: left;
+        }
+      }
+
+      /* Desktop: 4 Columns */
+      @media (min-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: 1.4fr 0.8fr 1fr 1.2fr;
+          gap: 30px;
+        }
+
+        .footer-col-info {
+          padding-right: 40px;
+        }
+      }
+
+      /* Mobile Specific Tweaks */
+      @media (max-width: 639px) {
+        .newsletter-form {
+          flex-direction: column;
+          border-radius: 20px;
+          background: transparent;
+          border: none;
+          gap: 15px;
+          padding: 0;
+        }
+
+        .newsletter-form input {
+          background: var(--input-bg);
+          border-radius: 100px;
+          border: 1px solid var(--border-color);
+          padding: 16px 25px;
+        }
+
+        .subscribe-btn {
+          width: 100%;
+          justify-content: center;
+          padding: 12px;
+        }
+
+        .working-hours {
+          max-width: 100%;
+        }
+
+        .bottom-links {
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+        }
+
+        .bottom-links a:not(:last-child)::after {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <footer class="site-footer">
+      <div class="container">
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+          <div class="newsletter-content">
+            <h2>Stay updated with the latest research insights</h2>
+          </div>
+          <form class="newsletter-form" id="newsletterForm" action="./404.html">
+            <input type="email" placeholder="Enter Email Address*" required />
+            <button type="submit" class="subscribe-btn">
+              Subscribe
+              <div class="icon-circle">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </button>
+          </form>
+        </section>
+
+        <!-- Main Footer Grid -->
+        <div class="footer-grid">
+          <!-- Column 1: Info & Hours -->
+          <div class="footer-col-info">
+            <div
+              class="footer-logo-wrapper"
+              onclick="window.location.href = './index.html'"
+            >
+              <img
+                src="./assets/logo.webp"
+                alt="Genlab Logo"
+                class="footer-logo"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'block';
+                "
+              />
+              <span class="logo-text" style="display: none"
+                >Genlab<span class="logo-dot">.</span></span
+              >
+            </div>
+            <p class="footer-description">
+              We support discovery across healthcare, biotechnology, & sciences.
+            </p>
+
+            <div class="working-hours">
+              <h4>Working Hours:</h4>
+              <div class="hours-row">
+                <span class="hours-label">Monday - Friday:-</span>
+                <span>10:00 - 05:00</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-label">Saturday:-</span>
+                <span>10:00 - 04:00</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-label">Sunday:-</span>
+                <span>Closed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./service.html">Our Services</a></li>
+              <li><a href="./blog.html">Our Blogs</a></li>
+              <li><a href="./contact.html">Contact US</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Services -->
+          <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul class="footer-links">
+              <li><a href="./404.html">Diagnostic Testing</a></li>
+              <li><a href="./404.html">Laboratory Analysis</a></li>
+              <li><a href="./404.html">Industrial Testing</a></li>
+              <li><a href="./404.html">Clinical</a></li>
+              <li><a href="./404.html">Chemical</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Social -->
+          <div class="footer-col">
+            <h4>Follow Us On Social</h4>
+            <p class="social-desc">
+              Connect with us online for updates, breakthroughs, & lab
+              highlights.
+            </p>
+            <div class="social-icons">
+              <a href="./404.html" class="social-icon" aria-label="Pinterest">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.966 1.406-5.966s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.261 7.929-7.261 4.162 0 7.397 2.966 7.397 6.93 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="X">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="Facebook">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="Instagram">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.584-.071 4.85c-.055 1.171-.248 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.056.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.015-4.85-.071c-1.171-.055-1.805-.248-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.584.071-4.85c.055-1.171.248-1.805.413-2.227.217-.562.477-.96.896-1.382.42-.419.819-.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+          <div class="copyright">Copyright © 2026 All Rights Reserved.</div>
+          <div class="bottom-links">
+            <a href="./404.html">Privacy Policy</a>
+            <a href="./404.html">Legal Documents</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("newsletterForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const btn = this.querySelector("button");
+          const icon = btn.querySelector(".icon-circle");
+
+          // Visual feedback
+          btn.style.opacity = "0.7";
+          btn.innerHTML = 'Subscribed! <div class="icon-circle">✓</div>';
+
+          setTimeout(() => {
+            location.reload(); // Reset for demo
+          }, 3000);
+        });
+    </script>
+  </body>
+</html>

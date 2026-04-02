@@ -1,0 +1,1217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Future-Focused Research Laboratory</title>
+    <!-- Google Fonts: Inter and Serif for headings -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./footer.css" />
+    <link rel="stylesheet" href="./nav.css" />
+  </head>
+  <body>
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="topbar-container">
+        <div class="topbar-left">
+          <svg class="top-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v4l3 3"></path>
+          </svg>
+          Welcome to Stackly – Next Gen Medicines
+        </div>
+        <div class="topbar-right">
+          <a href="./404.html" class="topbar-item">
+            <svg class="top-icon" viewBox="0 0 24 24">
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>hello@stackly.med</span>
+          </a>
+          <div class="topbar-item">
+            <svg class="top-icon" viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.28-2.28a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            <span>+1 (555) 000-1234</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header id="mainHeader">
+      <div class="nav-wrapper">
+        <nav class="navbar-shape">
+          <a href="./index.html" class="logo">
+            <div class="logo-placeholder">STACK<span>LY</span></div>
+          </a>
+
+          <ul class="nav-menu">
+            <li>
+              <a href="./index.html" class="nav-link active">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                HOME
+              </a>
+            </li>
+            <li>
+              <a href="./service.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  ></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                SERVICES
+              </a>
+            </li>
+            <li>
+              <a href="./about.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                ABOUT
+              </a>
+            </li>
+            <li>
+              <a href="./blog.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path
+                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                  ></path>
+                </svg>
+                BLOG
+              </a>
+            </li>
+            <li>
+              <a href="./contact.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  ></path>
+                </svg>
+                CONTACT
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-btns">
+            <a href="./login.html" class="btn btn-outline">LOGIN</a>
+            <a href="./signup.html" class="btn btn-gradient">
+              GET STARTED
+              <div class="btn-icon-circle">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-container">
+          <a href="./index.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            HOME <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./service.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+              ></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            SERVICES <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./about.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            ABOUT <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./blog.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+              ></path>
+            </svg>
+            BLOG <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./contact.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              ></path>
+            </svg>
+            CONTACT <span class="arrow-suffix">→</span>
+          </a>
+        </div>
+
+        <div class="mobile-footer">
+          <a href="./login.html" class="btn btn-outline">LOGIN</a>
+          <a href="./signup.html" class="btn btn-gradient">
+            GET STARTED
+            <div class="btn-icon-circle">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
+    <section class="abc-hero">
+      <!-- Background Video (Using a high-quality lab stock loop) -->
+      <video
+        class="abc-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        poster="https://images.unsplash.com/photo-1581093458791-9f3c3250bb8b?auto=format&fit=crop&q=80&w=2000"
+      >
+        <source src="./assets/hero2.mp4" type="video/mp4" />
+      </video>
+
+      <!-- Dark Overlay -->
+      <div class="abc-overlay"></div>
+
+      <div class="abc-container">
+        <!-- Left Side -->
+        <div class="abc-content">
+          <div class="abc-badge">Future-Focused Research Laboratory</div>
+
+          <h1 class="abc-title">
+            <span>Supporting discovery with</span>
+            <span class="abc-accent-text">trusted laboratory</span>
+          </h1>
+
+          <p class="abc-desc">
+            We provide reliable laboratory services backed by scientific
+            expertise, advanced technology, and strict quality standards to
+            support accurate research and meaningful discoveries.
+          </p>
+
+          <a href="./404.html" class="abc-btn">
+            Explore Our Research
+            <div class="abc-btn-circle">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+
+        <!-- Right Side Stats Card -->
+        <div class="abc-card">
+          <div class="abc-card-top">
+            <div class="abc-avatars">
+              <!-- Using UI Face placeholders -->
+              <img src="./assets/ch1.webp" alt="Scientist 1" />
+              <img src="./assets/ch2.webp" alt="Scientist 2" />
+              <img src="./assets/ch3.webp" alt="Scientist 3" />
+              <img src="./assets/ch5.webp" alt="Scientist 4" />
+            </div>
+            <div class="abc-percent">98%</div>
+          </div>
+
+          <div class="abc-divider"></div>
+
+          <h3 class="abc-card-title">Data Accuracy & Quality</h3>
+          <p class="abc-card-text">
+            We maintain the highest standards of data accuracy and quality,
+            ensuring every result contributes to your scientific goals.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="def-section">
+      <div class="def-container">
+        <!-- Row 1 -->
+        <div class="def-grid">
+          <div class="def-block">
+            <div class="def-badge" style="color: aliceblue">Our Approach</div>
+            <h2 class="def-title" style="color: aliceblue">
+              Precision-driven approach
+              <span>to scientific research</span>
+            </h2>
+
+            <div class="def-block">
+              <h3 style="color: aliceblue">
+                Objective-Driven Research Planning
+              </h3>
+              <p class="def-desc">
+                Every project begins with a thorough understanding of research
+                goals, scope, and regulatory requirements. We collaborate
+                closely with clients and institutions to ensure every milestone
+                is captured precisely.
+              </p>
+              <div class="def-list">
+                <div class="def-list-item" style="color: aliceblue">
+                  <span class="def-check">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                      />
+                    </svg>
+                  </span>
+                  Client-aligned study goals
+                </div>
+                <div class="def-list-item" style="color: aliceblue">
+                  <span class="def-check">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                      />
+                    </svg>
+                  </span>
+                  Strategic research roadmapping
+                </div>
+              </div>
+              <div class="def-divider"></div>
+            </div>
+          </div>
+
+          <div class="def-image-wrapper">
+            <img
+              src="./assets/gen1.webp"
+              alt="Researcher in lab"
+              class="def-image-large"
+            />
+          </div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="def-row-2-grid">
+          <div class="def-image-wrapper">
+            <img
+              src="./assets/gen2.webp"
+              alt="Laboratory equipment"
+              class="def-image-large"
+            />
+          </div>
+
+          <div class="def-content-wrapper">
+            <!-- Block 1 -->
+            <div class="def-block" style="margin-bottom: 40px">
+              <h3 style="color: aliceblue">Methodical Experimental Design</h3>
+              <p class="def-desc">
+                Every project begins with a thorough understanding of research
+                goals, scope, and regulatory requirements. We collaborate
+                closely with clients, institutions.
+              </p>
+              <div class="def-list">
+                <div class="def-list-item" style="color: aliceblue">
+                  <span class="def-check">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                      />
+                    </svg>
+                  </span>
+                  Data-focused design strategy
+                </div>
+                <div class="def-list-item" style="color: aliceblue">
+                  <span class="def-check">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                      />
+                    </svg>
+                  </span>
+                  Objective-driven study planning
+                </div>
+              </div>
+            </div>
+
+            <!-- Block 2 -->
+            <div class="def-block">
+              <h3 style="color: aliceblue">Advanced Laboratory Execution</h3>
+              <p class="def-desc">
+                Every project begins with a thorough understanding of research
+                goals, scope, and regulatory requirements. We collaborate
+                closely with clients, institutions.
+              </p>
+              <div class="def-list">
+                <div class="def-list-item" style="color: aliceblue">
+                  <span class="def-check">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                      />
+                    </svg>
+                  </span>
+                  Strict safety and quality protocols
+                </div>
+                <div class="def-list-item" style="color: aliceblue">
+                  <span class="def-check">
+                    <svg viewBox="0 0 24 24">
+                      <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                      />
+                    </svg>
+                  </span>
+                  Skilled laboratory professionals
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Text Marquee -->
+    <div class="def-clients">
+      <div class="def-clients-track">
+        <!-- Set of Text Logos -->
+        <div class="def-client-logo">BioTech Global</div>
+        <div class="def-client-logo">MedCore Labs</div>
+        <div class="def-client-logo">SynthoGen</div>
+        <div class="def-client-logo">Quantum Pharma</div>
+        <div class="def-client-logo">Nexus Health</div>
+        <div class="def-client-logo">Astra Systems</div>
+        <div class="def-client-logo">Cortex Research</div>
+        <div class="def-client-logo">Helix Medical</div>
+
+        <!-- Duplicate for Seamless Loop -->
+        <div class="def-client-logo">BioTech Global</div>
+        <div class="def-client-logo">MedCore Labs</div>
+        <div class="def-client-logo">SynthoGen</div>
+        <div class="def-client-logo">Quantum Pharma</div>
+        <div class="def-client-logo">Nexus Health</div>
+        <div class="def-client-logo">Astra Systems</div>
+        <div class="def-client-logo">Cortex Research</div>
+        <div class="def-client-logo">Helix Medical</div>
+      </div>
+    </div>
+    <section class="ghi-section">
+      <div class="ghi-container">
+        <!-- Header Section -->
+        <div class="ghi-header">
+          <span class="ghi-badge">Why Choose Us</span>
+          <h2 class="ghi-title">
+            End Science backed by <span>expertise</span>
+          </h2>
+          <p class="ghi-desc">
+            We deliver accurate, reliable laboratory services using advanced
+            technology, certified processes, and expert scientists. Our
+            commitment to quality ensures excellence in every result.
+          </p>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="ghi-grid">
+          <!-- Left Cards -->
+          <div class="ghi-left">
+            <div class="ghi-card">
+              <div class="ghi-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"
+                  ></path>
+                  <line x1="16" y1="8" x2="2" y2="22"></line>
+                  <line x1="17.5" y1="15" x2="9" y2="15"></line>
+                </svg>
+              </div>
+              <h3 class="ghi-card-title">Quality Standards</h3>
+              <p class="ghi-card-text">
+                We stand out as a reliable laboratory partner by combining
+                scientific expertise, advanced technology, and strict quality
+                standards.
+              </p>
+            </div>
+
+            <div class="ghi-card">
+              <div class="ghi-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M16.3 11c.5-1.5.1-3.1-.9-4.3l-1.5-1.7a4 4 0 0 0-5.7 0l-1.6 1.7a4.6 4.6 0 0 0-1 4.3"
+                  ></path>
+                  <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+                  <path d="M12 11v10"></path>
+                </svg>
+              </div>
+              <h3 class="ghi-card-title">Advanced Technology</h3>
+              <p class="ghi-card-text">
+                We stand out as a reliable laboratory partner by combining
+                scientific expertise, advanced technology, and strict quality
+                standards.
+              </p>
+            </div>
+
+            <div class="ghi-card">
+              <div class="ghi-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 16v-4"></path>
+                  <path d="M12 8h.01"></path>
+                </svg>
+              </div>
+              <h3 class="ghi-card-title">Experienced Scientific</h3>
+              <p class="ghi-card-text">
+                We stand out as a reliable laboratory partner by combining
+                scientific expertise, advanced technology, and strict quality
+                standards.
+              </p>
+            </div>
+          </div>
+
+          <!-- Center DNA Image -->
+          <div class="ghi-center">
+            <img
+              class="ghi-dna-img"
+              src="./assets/dna.webp"
+              alt="DNA Helix Structure"
+            />
+          </div>
+
+          <!-- Right Cards -->
+          <div class="ghi-right">
+            <div class="ghi-card">
+              <div class="ghi-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h3 class="ghi-card-title">Quality Assurance</h3>
+              <p class="ghi-card-text">
+                We stand out as a reliable laboratory partner by combining
+                scientific expertise, advanced technology, and strict quality
+                standards.
+              </p>
+            </div>
+
+            <div class="ghi-card">
+              <div class="ghi-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  ></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </div>
+              <h3 class="ghi-card-title">Clear Documentation</h3>
+              <p class="ghi-card-text">
+                We stand out as a reliable laboratory partner by combining
+                scientific expertise, advanced technology, and strict quality
+                standards.
+              </p>
+            </div>
+
+            <div class="ghi-card">
+              <div class="ghi-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <line x1="9" y1="1" x2="9" y2="4"></line>
+                  <line x1="15" y1="1" x2="15" y2="4"></line>
+                  <line x1="9" y1="20" x2="9" y2="23"></line>
+                  <line x1="15" y1="20" x2="15" y2="23"></line>
+                  <line x1="20" y1="9" x2="23" y2="9"></line>
+                  <line x1="20" y1="15" x2="23" y2="15"></line>
+                  <line x1="1" y1="9" x2="4" y2="9"></line>
+                  <line x1="1" y1="15" x2="4" y2="15"></line>
+                </svg>
+              </div>
+              <h3 class="ghi-card-title">Client-Focused Scientific</h3>
+              <p class="ghi-card-text">
+                We stand out as a reliable laboratory partner by combining
+                scientific expertise, advanced technology, and strict quality
+                standards.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="jkl-section">
+      <div class="jkl-container">
+        <!-- Header Area -->
+        <header class="jkl-header">
+          <div class="jkl-header-left">
+            <div class="jkl-badge" style="color: aliceblue">Our Services</div>
+            <h2 class="jkl-title" style="color: aliceblue">
+              Reliable testing, analysis &
+              <span>research solutions</span>
+            </h2>
+          </div>
+          <div class="jkl-header-right">
+            <p class="jkl-header-desc">
+              Our laboratory provides reliable testing, precise analysis, &
+              research support backed by scientific expertise, modern
+              technology.
+            </p>
+            <a href="./service.html" class="jkl-btn">
+              View All Services
+              <span class="jkl-btn-arrow">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </header>
+
+        <!-- Services Grid -->
+        <div class="jkl-grid">
+          <!-- Card 01 -->
+          <div class="jkl-card">
+            <span class="jkl-number" style="color: aliceblue">01</span>
+            <h3 class="jkl-card-title" style="color: aliceblue">
+              Laboratory Testing
+            </h3>
+            <div class="jkl-divider"></div>
+            <p class="jkl-card-text">
+              Validated methodologies to ensure accurate and reliable results
+              across multiple sectors and requirements.
+            </p>
+            <div class="jkl-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.48 2 2 4.02 2 6.5v11c0 2.48 4.48 4.5 10 4.5s10-2.02 10-4.5v-11C22 4.02 17.52 2 12 2zm0 18c-4.41 0-8-1.57-8-3.5v-2.22c1.9 1.15 4.77 1.83 8 1.83s6.1-0.68 8-1.83v2.22c0 1.93-3.59 3.5-8 3.5zm0-5.5c-4.41 0-8-1.57-8-3.5v-2.22c1.9 1.15 4.77 1.83 8 1.83s6.1-0.68 8-1.83v2.22c0 1.93-3.59 3.5-8 3.5zm0-5.5c-4.41 0-8-1.57-8-3.5s3.59-3.5 8-3.5 8 1.57 8 3.5-3.59 3.5-8 3.5z"
+                />
+              </svg>
+            </div>
+            <div class="jkl-divider"></div>
+            <a href="./404.html" class="jkl-learn">
+              Learn More
+              <span class="jkl-learn-arrow">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="jkl-card">
+            <span class="jkl-number" style="color: aliceblue">02</span>
+            <h3 class="jkl-card-title" style="color: aliceblue">
+              Diagnostic Testing
+            </h3>
+            <div class="jkl-divider"></div>
+            <p class="jkl-card-text">
+              Validated methodologies to ensure accurate and reliable results
+              across multiple sectors and requirements.
+            </p>
+            <div class="jkl-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M22 10V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v4c1.1 0 2 .9 2 2s-.9 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2s.9-2 2-2zM9.41 15.59L8 17l-4-4 4-4 1.41 1.41L6.83 13H11v2H6.83l2.58 2.59zm8.18-2.59L15.01 10.41 13.59 11.83 16.17 14.41H12.01v2h4.16l-2.58 2.59 1.41 1.41 4-4z"
+                />
+              </svg>
+            </div>
+            <div class="jkl-divider"></div>
+            <a href="./404.html" class="jkl-learn">
+              Learn More
+              <span class="jkl-learn-arrow">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Card 03 -->
+          <div class="jkl-card">
+            <span class="jkl-number" style="color: aliceblue">03</span>
+            <h3 class="jkl-card-title" style="color: aliceblue">
+              Industrial Testing
+            </h3>
+            <div class="jkl-divider"></div>
+            <p class="jkl-card-text">
+              Validated methodologies to ensure accurate and reliable results
+              across multiple sectors and requirements.
+            </p>
+            <div class="jkl-icon">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M19 8h-1V3H6v5H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm4-4h-2v-2H6v2H4v-4c0-.55.45-1 1-1h14c.55 0 1 .45 1 1v4z"
+                />
+              </svg>
+            </div>
+            <div class="jkl-divider"></div>
+            <a href="./404.html" class="jkl-learn">
+              Learn More
+              <span class="jkl-learn-arrow">
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Bottom Review Strip -->
+        <div class="jkl-bottom">
+          <div class="jkl-review-row">
+            <div class="jkl-avatar">
+              <img src="./assets/ch1.webp" alt="Expert" />
+            </div>
+            <span style="color: aliceblue"
+              >Accurate testing and reliable results made simple —
+            </span>
+            <a href="./404.html" class="jkl-connect"
+              >Connect With Our Experts Today!</a
+            >
+          </div>
+
+          <div class="jkl-rating-row">
+            <span>4.9/5</span>
+            <div class="jkl-stars">
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+                />
+              </svg>
+            </div>
+            <span style="color: aliceblue">Our 4200 Reviews</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="mno-section">
+      <div class="mno-container">
+        <!-- Left Side -->
+        <div class="mno-left">
+          <div class="mno-badge">View Case Study</div>
+
+          <h2 class="mno-title">
+            Validated results from trusted <span>laboratory research</span>
+          </h2>
+
+          <a href="./404.html" class="mno-btn">
+            View All Studies
+            <span class="mno-btn-icon">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </span>
+          </a>
+
+          <div class="mno-stats">
+            <div class="mno-stats-header">
+              <div class="mno-percent">98%</div>
+              <div class="mno-avatars">
+                <img src="./assets/ch9.webp" alt="Partner" />
+                <img src="./assets/ch8.webp" alt="Partner" />
+                <img src="./assets/ch10.webp" alt="Partner" />
+                <img src="./assets/ch6.webp" alt="Partner" />
+              </div>
+            </div>
+            <h4 class="mno-stats-title">Global Research Partners</h4>
+            <p class="mno-stats-text">
+              Collaborating with leading university, and industry innovators
+              worldwide.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Side Grid -->
+        <div class="mno-right">
+          <div class="mno-grid">
+            <!-- Card 1 -->
+            <article class="mno-card">
+              <div class="mno-card-img-wrapper">
+                <img
+                  src="./assets/gen.webp"
+                  class="mno-card-img"
+                  alt="Biotech Research"
+                />
+              </div>
+              <div class="mno-card-body">
+                <div class="mno-category">Biotech</div>
+                <h3 class="mno-card-title">Product Performance Validation</h3>
+              </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="mno-card">
+              <div class="mno-card-img-wrapper">
+                <img
+                  src="./assets/b11.webp"
+                  class="mno-card-img"
+                  alt="Medical Screening"
+                />
+              </div>
+              <div class="mno-card-body">
+                <div class="mno-category">Medical</div>
+                <h3 class="mno-card-title">Drug Compound Screening</h3>
+              </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="mno-card">
+              <div class="mno-card-img-wrapper">
+                <img
+                  src="./assets/b3.webp"
+                  class="mno-card-img"
+                  alt="Environmental Impact"
+                />
+              </div>
+              <div class="mno-card-body">
+                <div class="mno-category">Environmental</div>
+                <h3 class="mno-card-title">Environmental Impact Assessment</h3>
+              </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="mno-card">
+              <div class="mno-card-img-wrapper">
+                <img
+                  src="./assets/gen1.webp"
+                  class="mno-card-img"
+                  alt="Clinical Diagnostics"
+                />
+              </div>
+              <div class="mno-card-body">
+                <div class="mno-category">Biotech</div>
+                <h3 class="mno-card-title">
+                  Clinical Diagnostics Optimization
+                </h3>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pqr-section">
+      <div class="pqr-container">
+        <!-- Header -->
+        <header class="pqr-header">
+          <div class="pqr-header-left">
+            <div class="pqr-badge">Our Testimonials</div>
+            <h2 class="pqr-title">
+              Sharing stories of precision,<br /><span
+                >quality, & research</span
+              >
+            </h2>
+          </div>
+          <div class="pqr-header-right">
+            <p class="pqr-desc">
+              Discover how our commitment to accuracy, scientific integrity, and
+              innovative research has delivered exceptional results for clients
+              worldwide.
+            </p>
+            <a href="./404.html" class="pqr-btn">
+              View All Testimonials
+              <div class="pqr-btn-icon">
+                <svg class="pqr-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                  />
+                </svg>
+              </div>
+            </a>
+          </div>
+        </header>
+      </div>
+
+      <!-- Slider -->
+      <div class="pqr-slider-wrap" id="pqrSliderWrap">
+        <div class="pqr-track" id="pqrTrack">
+          <!-- Cards will be populated by JS for cloning logic -->
+        </div>
+      </div>
+    </section>
+    <section class="stu-section">
+      <div class="stu-overlay"></div>
+
+      <div class="stu-container">
+        <!-- Left Content -->
+        <div class="stu-left">
+          <span class="stu-badge">Book An Appointment</span>
+          <h2 class="stu-title">
+            Connect with expert for reliable laboratory solutions
+          </h2>
+          <p class="stu-desc">
+            Get in touch with our scientific experts for reliable laboratory
+            services backed by precision, quality standards, and proven
+            expertise.
+          </p>
+
+          <a href="./404.html" class="stu-btn">
+            Book An Appointment
+            <span class="stu-arrow-circle">↗</span>
+          </a>
+
+          <div class="stu-features">
+            <div class="stu-feature">
+              <div class="stu-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <div>
+                <h3 class="stu-feature-title">Easy Scheduling</h3>
+                <p class="stu-feature-text">
+                  Consultation quickly through our online form or by contacting.
+                </p>
+              </div>
+            </div>
+
+            <div class="stu-feature">
+              <div class="stu-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-14 8.38 8.38 0 0 1 3.8.9L21 3.5v8z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="stu-feature-title">24/7 Support</h3>
+                <p class="stu-feature-text">
+                  Our specialist provide guidance tailored your project needs.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Image -->
+        <div class="stu-right">
+          <img
+            class="stu-doctors"
+            src="./assets/cta.webp"
+            alt="Laboratory Experts"
+          />
+        </div>
+      </div>
+    </section>
+    <footer class="site-footer">
+      <div class="container">
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+          <div class="newsletter-content">
+            <h2>Stay updated with the latest research insights</h2>
+          </div>
+          <form class="newsletter-form" id="newsletterForm" action="./404.html">
+            <input type="email" placeholder="Enter Email Address*" required />
+            <button type="submit" class="subscribe-btn">
+              Subscribe
+              <div class="icon-circle">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </button>
+          </form>
+        </section>
+
+        <!-- Main Footer Grid -->
+        <div class="footer-grid">
+          <!-- Column 1: Info & Hours -->
+          <div class="footer-col-info">
+            <div
+              class="footer-logo-wrapper"
+              onclick="window.location.href = './index.html'"
+            >
+              <img
+                src="./assets/logo.webp"
+                alt="Genlab Logo"
+                class="footer-logo"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'block';
+                "
+              />
+              <span class="logo-text" style="display: none"
+                >Genlab<span class="logo-dot">.</span></span
+              >
+            </div>
+            <p class="footer-description">
+              We support discovery across healthcare, biotechnology, & sciences.
+            </p>
+
+            <div class="working-hours">
+              <h4>Working Hours:</h4>
+              <div class="hours-row">
+                <span class="hours-label">Monday - Friday:-</span>
+                <span>10:00 - 05:00</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-label">Saturday:-</span>
+                <span>10:00 - 04:00</span>
+              </div>
+              <div class="hours-row">
+                <span class="hours-label">Sunday:-</span>
+                <span>Closed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./about.html">About Us</a></li>
+              <li><a href="./service.html">Our Services</a></li>
+              <li><a href="./blog.html">Our Blogs</a></li>
+              <li><a href="./contact.html">Contact US</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Services -->
+          <div class="footer-col">
+            <h4>Our Services</h4>
+            <ul class="footer-links">
+              <li><a href="./404.html">Diagnostic Testing</a></li>
+              <li><a href="./404.html">Laboratory Analysis</a></li>
+              <li><a href="./404.html">Industrial Testing</a></li>
+              <li><a href="./404.html">Clinical</a></li>
+              <li><a href="./404.html">Chemical</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Social -->
+          <div class="footer-col">
+            <h4>Follow Us On Social</h4>
+            <p class="social-desc">
+              Connect with us online for updates, breakthroughs, & lab
+              highlights.
+            </p>
+            <div class="social-icons">
+              <a href="./404.html" class="social-icon" aria-label="Pinterest">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.966 1.406-5.966s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.261 7.929-7.261 4.162 0 7.397 2.966 7.397 6.93 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="X">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="Facebook">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  />
+                </svg>
+              </a>
+              <a href="./404.html" class="social-icon" aria-label="Instagram">
+                <svg
+                  width="18"
+                  height="18"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.584-.071 4.85c-.055 1.171-.248 1.805-.413 2.227-.217.562-.477.96-.896 1.382-.42.419-.819.679-1.381.896-.422.164-1.056.36-2.227.413-1.266.057-1.646.07-4.85.07s-3.584-.015-4.85-.071c-1.171-.055-1.805-.248-2.227-.413-.562-.217-.96-.477-1.382-.896-.419-.42-.679-.819-.896-1.381-.164-.422-.36-1.057-.413-2.227-.057-1.266-.07-1.646-.07-4.85s.015-3.584.071-4.85c.055-1.171.248-1.805.413-2.227.217-.562.477-.96.896-1.382.42-.419.819-.679 1.381-.896.422-.164 1.057-.36 2.227-.413 1.266-.057 1.646-.07 4.85-.07zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 11-2.882 0 1.441 1.441 0 012.882 0z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+          <div class="copyright">Copyright © 2026 All Rights Reserved.</div>
+          <div class="bottom-links">
+            <a href="./404.html">Privacy Policy</a>
+            <a href="./404.html">Legal Documents</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./nav.js"></script>
+    <script src="./footer.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

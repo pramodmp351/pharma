@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly - Premium SaaS Header</title>
+    <style>
+      /* --- CSS VARIABLES & RESET --- */
+      :root {
+        --color-bg-body: #f5f7f9;
+        --color-topbar: #0a2f3f;
+        --color-nav-bg: #ffffff;
+        --color-primary: #0fa3a6;
+        --color-primary-dark: #0b3c4c;
+        --color-accent: #1bc5bd;
+        --color-gradient: linear-gradient(
+          to right,
+          #1d78b6 0%,
+          #0fa3a6 50%,
+          #1bc5bd 100%
+        );
+        --color-text-main: #0e4a5f;
+        --color-text-muted: #64748b;
+        --color-white: #ffffff;
+        --color-border: #e2e8f0;
+
+        --topbar-height: 36px;
+        --navbar-height: 70px;
+        --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        --shadow-subtle:
+          0 10px 25px -5px rgba(10, 47, 63, 0.1),
+          0 8px 10px -6px rgba(10, 47, 63, 0.05);
+
+        --font-main:
+          "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-main);
+        background-color: var(--color-bg-body);
+        color: var(--color-text-main);
+        line-height: 1.5;
+        min-height: 200vh;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: var(--transition-smooth);
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* --- TOPBAR --- */
+      .topbar {
+        height: var(--topbar-height);
+        background-color: var(--color-topbar);
+        color: var(--color-white);
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        font-weight: 400;
+        padding: 0 5%;
+        position: relative;
+        z-index: 1001;
+      }
+
+      .topbar-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .topbar-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        opacity: 0.9;
+      }
+
+      .topbar-right {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .topbar-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        opacity: 0.8;
+      }
+
+      .topbar-item:hover {
+        opacity: 1;
+      }
+
+      .top-icon {
+        width: 14px;
+        height: 14px;
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+      }
+
+      /* --- HEADER / NAVBAR WRAPPER --- */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100%;
+      }
+
+      .nav-wrapper {
+        padding: 15px 5%;
+        display: flex;
+        justify-content: center;
+        transition: var(--transition-smooth);
+      }
+
+      header.scrolled .nav-wrapper {
+        padding: 8px 5%;
+      }
+
+      /* --- UNIQUE NAVBAR SHAPE --- */
+      .navbar-shape {
+        background: var(--color-white);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        height: 70px;
+        padding: 0 30px;
+        box-shadow: var(--shadow-subtle);
+        border-radius: 100px;
+        position: relative;
+      }
+
+      /* LOGO */
+      .logo-placeholder {
+        font-weight: 800;
+        font-size: 22px;
+        color: var(--color-primary-dark);
+        letter-spacing: -0.5px;
+      }
+      .logo-placeholder span {
+        color: var(--color-primary);
+      }
+
+      /* NAVIGATION LINKS (Desktop) */
+      .nav-menu {
+        display: flex;
+        gap: 25px;
+      }
+
+      .nav-link {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--color-text-main);
+        position: relative;
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .nav-icon {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+        stroke-width: 2.2;
+        fill: none;
+        opacity: 0.7;
+        transition: var(--transition-smooth);
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--color-primary);
+        transition: var(--transition-smooth);
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--color-primary);
+      }
+
+      .nav-link:hover .nav-icon,
+      .nav-link.active .nav-icon {
+        opacity: 1;
+        transform: translateY(-1px);
+      }
+
+      .nav-link:hover:after,
+      .nav-link.active:after {
+        width: 100%;
+      }
+
+      /* BUTTONS */
+      .nav-btns {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+      }
+
+      .btn {
+        font-family: var(--font-main);
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-smooth);
+        text-align: center;
+      }
+
+      .btn-outline {
+        padding: 10px 22px;
+        border-radius: 50px;
+        font-size: 14px;
+        border: 2px solid var(--color-primary);
+        color: var(--color-primary);
+        background: transparent;
+      }
+
+      .btn-outline:hover {
+        background: var(--color-primary);
+        color: var(--color-white);
+        transform: translateY(-2px);
+      }
+
+      .btn-gradient {
+        background: var(--color-gradient);
+        color: var(--color-white);
+        padding: 6px 6px 6px 24px;
+        border-radius: 100px;
+        font-size: 15px;
+        border: none;
+        box-shadow: 0 4px 15px rgba(15, 163, 166, 0.2);
+        gap: 12px;
+      }
+
+      .btn-icon-circle {
+        background: var(--color-white);
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary-dark);
+        transition: transform 0.3s ease;
+      }
+
+      .btn-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(15, 163, 166, 0.3);
+      }
+
+      .btn-gradient:hover .btn-icon-circle {
+        transform: rotate(-45deg);
+      }
+
+      /* HAMBURGER */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        width: 28px;
+        cursor: pointer;
+        z-index: 2000;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 100%;
+        height: 2.5px;
+        background: var(--color-primary-dark);
+        border-radius: 2px;
+        transition: var(--transition-smooth);
+      }
+
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(7.5px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-7.5px) rotate(-45deg);
+      }
+
+      /* --- MOBILE MENU --- */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--color-white);
+        padding: 120px 40px 60px;
+        transition: var(--transition-smooth);
+        z-index: 1500;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+      }
+
+      .mobile-menu.active {
+        left: 0;
+      }
+
+      .mobile-nav-container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .mobile-link {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--color-text-main);
+        padding: 15px 0;
+        border-bottom: 1px solid var(--color-border);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: all 0.3s ease;
+      }
+
+      .mobile-menu.active .mobile-link {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .mobile-link .nav-icon {
+        width: 24px;
+        height: 24px;
+        color: var(--color-primary);
+        opacity: 1;
+      }
+
+      .mobile-link .arrow-suffix {
+        margin-left: auto;
+        font-size: 18px;
+        color: var(--color-border);
+      }
+
+      .mobile-footer {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        opacity: 0;
+        transition: opacity 0.4s ease 0.6s;
+      }
+
+      .mobile-menu.active .mobile-footer {
+        opacity: 1;
+      }
+
+      .mobile-footer .btn-gradient {
+        padding: 8px 8px 8px 30px;
+        justify-content: space-between;
+        font-size: 18px;
+      }
+
+      /* --- RESPONSIVE --- */
+      @media (max-width: 1024px) {
+        .nav-menu {
+          gap: 15px;
+        }
+        .nav-link {
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 868px) {
+        .topbar-left {
+          display: none;
+        }
+        .topbar-container {
+          justify-content: center;
+        }
+        .nav-menu,
+        .nav-btns {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+        .navbar-shape {
+          padding: 0 20px;
+          height: 60px;
+          border-radius: 15px;
+        }
+        .nav-wrapper {
+          padding: 10px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="topbar-container">
+        <div class="topbar-left">
+          <svg class="top-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v4l3 3"></path>
+          </svg>
+          Welcome to Stackly – Next Gen Medicines
+        </div>
+        <div class="topbar-right">
+          <a href="./404.html" class="topbar-item">
+            <svg class="top-icon" viewBox="0 0 24 24">
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              ></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>hello@stackly.med</span>
+          </a>
+          <div class="topbar-item">
+            <svg class="top-icon" viewBox="0 0 24 24">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.28-2.28a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+              ></path>
+            </svg>
+            <span>+1 (555) 000-1234</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header id="mainHeader">
+      <div class="nav-wrapper">
+        <nav class="navbar-shape">
+          <a href="./index.html" class="logo">
+            <div class="logo-placeholder">STACK<span>LY</span></div>
+          </a>
+
+          <ul class="nav-menu">
+            <li>
+              <a href="./index.html" class="nav-link active">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                HOME
+              </a>
+            </li>
+            <li>
+              <a href="./service.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                  ></path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+                SERVICES
+              </a>
+            </li>
+            <li>
+              <a href="./about.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                ABOUT
+              </a>
+            </li>
+            <li>
+              <a href="./blog.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                  <path
+                    d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+                  ></path>
+                </svg>
+                BLOG
+              </a>
+            </li>
+            <li>
+              <a href="./contact.html" class="nav-link">
+                <svg class="nav-icon" viewBox="0 0 24 24">
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  ></path>
+                </svg>
+                CONTACT
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-btns">
+            <a href="./login.html" class="btn btn-outline">LOGIN</a>
+            <a href="./signup.html" class="btn btn-gradient">
+              GET STARTED
+              <div class="btn-icon-circle">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </a>
+          </div>
+
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-nav-container">
+          <a href="./index.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            HOME <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./service.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+              ></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            SERVICES <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./about.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            ABOUT <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./blog.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path
+                d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
+              ></path>
+            </svg>
+            BLOG <span class="arrow-suffix">→</span>
+          </a>
+          <a href="./contact.html" class="mobile-link">
+            <svg class="nav-icon" viewBox="0 0 24 24">
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              ></path>
+            </svg>
+            CONTACT <span class="arrow-suffix">→</span>
+          </a>
+        </div>
+
+        <div class="mobile-footer">
+          <a href="./login.html" class="btn btn-outline">LOGIN</a>
+          <a href="./signup.html" class="btn btn-gradient">
+            GET STARTED
+            <div class="btn-icon-circle">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main
+      style="
+        padding: 60px 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      "
+    >
+      <h1
+        style="
+          font-size: clamp(32px, 8vw, 56px);
+          margin-bottom: 20px;
+          color: var(--color-primary-dark);
+        "
+      >
+        Visual Navigation Excellence
+      </h1>
+      <p
+        style="
+          font-size: 18px;
+          color: var(--color-text-muted);
+          max-width: 700px;
+          margin: 0 auto;
+        "
+      >
+        Navigation icons have been added to help users quickly identify sections
+        at a glance, maintaining a professional and intuitive user experience.
+      </p>
+    </main>
+
+    <script>
+      const header = document.getElementById("mainHeader");
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const navLinks = document.querySelectorAll(".mobile-link");
+
+      window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 40);
+      });
+
+      const toggleMenu = () => {
+        hamburger.classList.toggle("active");
+        mobileMenu.classList.toggle("active");
+        document.body.style.overflow = mobileMenu.classList.contains("active")
+          ? "hidden"
+          : "auto";
+      };
+
+      hamburger.addEventListener("click", toggleMenu);
+      navLinks.forEach((link) => link.addEventListener("click", toggleMenu));
+    </script>
+  </body>
+</html>

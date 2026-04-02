@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found</title>
+    <style>
+      /* Reset & Base */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      :root {
+        --err-color-primary: #0b3c4c;
+        --err-color-accent: #0fa3a6;
+        --err-color-highlight: #1bc5bd;
+        --err-color-white: #ffffff;
+        --err-overlay: rgba(6, 45, 60, 0.85);
+        --err-glass: rgba(255, 255, 255, 0.1);
+        --err-glass-border: rgba(255, 255, 255, 0.2);
+      }
+
+      /* Body & Background */
+      .err-body {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: url("./assets/h5.webp") center/cover no-repeat;
+        position: relative;
+      }
+
+      /* Dark Overlay Gradient */
+      .err-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          radial-gradient(
+            circle at center,
+            transparent 0%,
+            var(--err-overlay) 100%
+          ),
+          var(--err-overlay);
+        z-index: 1;
+      }
+
+      /* Content Wrapper */
+      .err-wrapper {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1200px;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Glass Morphism Card */
+      .err-card {
+        background: var(--err-glass);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid var(--err-glass-border);
+        border-radius: 20px;
+        padding: 32px 24px;
+        width: 100%;
+        max-width: 540px;
+        text-align: center;
+        color: var(--err-color-white);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        animation: errFadeUp 0.8s ease-out forwards;
+      }
+
+      /* Badge */
+      .err-badge {
+        display: inline-block;
+        background: rgba(27, 197, 189, 0.2);
+        color: var(--err-color-highlight);
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 24px;
+        border: 1px solid rgba(27, 197, 189, 0.3);
+      }
+
+      /* 404 Text Animation */
+      .err-code {
+        font-size: 80px;
+        font-weight: 900;
+        line-height: 1;
+        margin-bottom: 16px;
+        background: linear-gradient(
+          135deg,
+          var(--err-color-white) 30%,
+          var(--err-color-highlight) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: errFloat 4s ease-in-out infinite;
+      }
+
+      .err-title {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+
+      .err-text {
+        font-size: 16px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 40px;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Action Buttons */
+      .err-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .err-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+      }
+
+      /* Teal Gradient Button */
+      .err-btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--err-color-accent) 0%,
+          var(--err-color-highlight) 100%
+        );
+        color: var(--err-color-white);
+        box-shadow: 0 10px 20px -5px rgba(27, 197, 189, 0.4);
+      }
+
+      .err-btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 25px -5px rgba(27, 197, 189, 0.5);
+        filter: brightness(1.1);
+      }
+
+      /* Outline Button */
+      .err-btn-outline {
+        background: transparent;
+        color: var(--err-color-white);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .err-btn-outline:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: var(--err-color-white);
+      }
+
+      /* Animations */
+      @keyframes errFadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes errFloat {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      /* Responsive Desktop */
+      @media (min-width: 768px) {
+        .err-card {
+          padding: 48px;
+        }
+
+        .err-code {
+          font-size: 120px;
+        }
+
+        .err-title {
+          font-size: 36px;
+        }
+
+        .err-text {
+          font-size: 18px;
+          max-width: 100%;
+        }
+
+        .err-actions {
+          flex-direction: row;
+          justify-content: center;
+        }
+
+        .err-btn {
+          min-width: 160px;
+        }
+      }
+
+      /* Touch improvements */
+      .err-btn:active {
+        transform: scale(0.98);
+      }
+    </style>
+  </head>
+  <body class="err-body">
+    <div class="err-overlay"></div>
+
+    <main class="err-wrapper">
+      <div class="err-card">
+        <span class="err-badge">Page Not Found</span>
+
+        <div class="err-code">404</div>
+
+        <h1 class="err-title">Oops! Page not found</h1>
+
+        <p class="err-text">
+          The page you're looking for doesn't exist or has been moved to another
+          URL.
+        </p>
+
+        <div class="err-actions">
+          <a href="./index.html" class="err-btn err-btn-primary">Go Home</a>
+          <a href="./contact.html" class="err-btn err-btn-outline"
+            >Contact Support</a
+          >
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
